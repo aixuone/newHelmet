@@ -1,0 +1,57 @@
+.videoBox{
+	width: 765px;
+	height: 800px ;
+	/*background: pink;*/
+	margin: 0 auto;
+	padding-top: 50px;
+	
+}
+/*.video{
+	
+}*/
+.VideoInfoBox{
+	margin-left: 35px;
+}
+.playVideo{
+	width: 760px;
+	height: 440px;
+	border: 1px solid #333;
+}
+.videoCount{
+	margin-top: 0;
+}
+.VideoInfoBox .playVideoTitle{
+	font-size:18px ;
+	color: #333354;
+	line-height: 46px;
+	
+}
+.unilineInfo{
+	overflow: hidden;
+	margin: 20px 0;
+}
+.unilineInfo p{
+	margin-right: 20px;
+	color: #666;
+}
+.videotag p{
+	padding: 0 10px;
+	border: 1px solid #59BBB2;
+	border-radius: 20px;
+	float: left;
+}
+.unilineInfo p i{
+	display: inline-block;
+	width: 20px;
+	height:20px;
+	vertical-align: middle;
+	margin-left: 20px;
+}
+.position .map{
+	background: url(../../images/icon_map.png) no-repeat;
+	background-size: 100% 100%;
+}
+.voice i{
+	background: url(../../images/icon_yy.png) no-repeat;
+	background-size: 100% 100%;
+}

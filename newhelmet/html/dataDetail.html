@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>资料中心</title>
+	<link rel="stylesheet" href="../plugins/layui/css/layui.css">
+	<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../src/css/projectcss/publicFan.css" >
+	<link rel="stylesheet" href="../src/css/projectcss/style.css" >
+	<link rel="stylesheet" href="../src/css/projectcss/dataCenter.css" >
+	<link rel="stylesheet" href="../src/css/projectcss/dataDetail.css" >
+	<style>
+		.playVideo{position: relative;}
+		.btns{
+			width: 100%;
+			height: 45px;
+			line-height: 45px;
+			box-sizing: border-box;
+			position: absolute;
+			left: 0;
+			bottom:0 ;
+			z-index: 20;
+			background: rgba(225,225,225,0.3);
+			padding: 0 15px;
+		}
+		.gnpanel{
+			height: 45px;
+			line-height: 45px;
+			background: #333;
+			box-sizing: border-box;
+			padding: 0 15px;
+			width: 762px;
+		}
+	</style>
+</head>
+<body>
+    <div class="layui-fluid main">
+		<div class="layui-row">
+            <div class="wraper">
+            		<!--页面头部-->
+				<div class="title"><span>|</span>数据分析>资料中心</div>
+            	<div class="videoBox">
+            		
+            		<!--视频-->
+            		<div class="playVideo">
+            		  	<video width="100%" height="100%" poster="../src/images/icon_bg.png" controls  id="myvideo">
+            		  		<source src="http://smartuat.tygps.com/group1/M00/00/73/wKhvFVv594iASlXIBJm4ouDR4X8180.mp4" type="video/mp4"></source>
+            		  		<source src="http://demo.htmleaf.com/1810/201810171450/ckin.mp4" type="video/ogg"></source>
+            		  		<source src="http://demo.htmleaf.com/1810/201810171450/ckin.mp4" type="video/webm"></source>
+            		  		当前浏览器不支持 video直接播放
+            		  	</video>
+            			<!--<div class="btns">
+            				<div class="fl v-play curP marr15">播放</div>
+            				<div class="fl marr15">
+            					<span class="current">0:00</span>/<span class="duration">0:00</span>
+            				</div>
+            			</div>-->
+            			
+            		</div>
+            		<div class="gnpanel">
+            			<div class="fl marr15 curP">
+							返回视频列表
+            			</div>
+            			<div class="fl curP">
+            				下载原视频
+            			</div>
+            		</div>
+            		<div class="VideoInfoBox">
+            			<div class="playVideoTitle">
+            			   BAJ55-PC56-500小时保养（1）
+            		    </div>
+            		    <div class="unilineInfo">
+            		    	<div class="videoCount fl">
+								<p class="watchCount fl"><i></i><span>114</span>次</p>
+								<p class="downLoad fl"><i></i><span>22</span>次</p>
+								<p class="fl">用户：<span>张三</span></p>
+	            		    	<p class="fl">客户ID：<span>00000</span></p>
+	            		    	<p class="fl">视频时长：<span>1200秒</span></p>
+							</div>
+            		    </div>	
+            		    
+            		    <div class="unilineInfo">
+            		    	<p class="fl">文件大小：<span>张三</span></p>
+            		    	<p class="fl">录制时间：<span>00000</span></p>
+            		    	<p class="fl">上传时间：<span>1200秒</span></p>
+            		    </div>
+            		    <div class="unilineInfo">
+            		    	<p class="fl position">位置：<span>石家庄高新区黄河大道225</span><i class="map"></i></p>
+            		    	<p class="fl voice">语音备注：<span></span><i class=""></i></p>
+            		    </div>
+            		    <div class="unilineInfo videotag">
+            		        <span class="fl">标签：</span>
+            		        <p>保养</p> 
+            		        <p>发动机</p>
+            		        <p>+</p> 
+            		    </div>
+            			
+            		</div>
+            		
+            	</div>
+            	
+            </div>
+
+        </div>
+    </div>   
+    <script src="../src/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	var video=document.getElementById('myvideo');
+    	$('.v-play').on('click',function(){
+    		if(video.paused){
+    			video.play();
+    			$(this).text('暂停')
+    		}else{
+    			video.pause();
+    			$(this).text('播放')
+    		}
+    	})
+    	$('#myvideo').on('timeupdate',function(event){
+    		trackedvieo(this.currentTime,this.duration);
+    	})
+    	function trackedvieo(currentTime,duration){
+    		$(".current").text(currentTime);
+    		$(".duration").text(duration);
+    	}
+    </script>
+</body>
+</html>
