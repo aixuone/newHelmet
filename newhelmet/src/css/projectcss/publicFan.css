@@ -1,0 +1,112 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.wraper{
+	/*width: 1200px;
+	margin: 0 auto;*/
+}
+.title{
+	width: 100%;
+	float: left;
+	line-height: 50px;
+	font-size: 16px;
+	font-weight: normal;
+	color: #333;
+	border-bottom: 12px solid #F2F2F2;
+	text-indent: 20px;
+}
+.title span{
+  height: 25px;
+  margin-right: 8px;
+  color:#33ABA0;
+}
+.iconShowCon{
+	width:100%;
+	overflow: hidden;
+}
+.setImgBox{
+	width:100%;
+	height: 50px;
+	margin-top: 25px;
+}
+.setImg{
+	width: 200px;
+}
+.setImg img{
+	width: 50px;
+	height: 100%;
+	
+}
+
+/*拖拽左侧*/
+.iconShowLeft{
+	/*width: 1000px;*/
+	width: calc(100% - 200px);
+	padding-top: 60px;
+	
+}
+.iconShowLeft ul{
+	width: 100%;
+	overflow: hidden;
+	
+}
+.iconShowLeft ul li{
+	width:17%;
+	text-align: center;
+    padding-top: 10px;
+    margin-top: 10px;
+	float: left;
+	border: 1px solid transparent;
+	cursor: pointer;
+}
+.iconShowLeft ul li:hover{
+	border: 1px solid #0099FF ;
+	border-radius: 10px;
+}
+.iconShowLeft ul li img{
+	width:100px;
+	height: 100px;
+}
+.iconShowLeft ul li p{
+	line-height: 65px;
+	color:#333333 ;
+	font-size: 14px;
+	
+}
+
+/*首页图标右侧*/
+
+.iconShowRight{
+	/*width:calc(100% - 1001px);*/
+	width:198px;
+	margin-top: 20px;
+	border-right:1px solid #CCCCCC;
+	border-top: 1px solid #CCCCCC;
+}
+.iconShowRight ul li{
+	 width: 100%;
+	 padding-top: 10px;
+	  border-bottom:1px solid #CCCCCC;
+	  border-left:1px solid #CCCCCC;
+	  border-right:1px solid #CCCCCC;
+     text-align: center;
+   
+}
+.iconShowRight ul li img{
+	width:100px;
+	height: 100px;
+}
+.iconShowRight ul li p{
+	line-height: 65px;
+	color:#333333 ;
+	font-size: 14px;
+}
+
+.placeHolder div { 
+	width: 100%;
+	height: 170px;
+	border-radius:10px ;
+	background-color:white !important; 
+	border:dashed 1px gray !important; 
+}

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta http-equiv="X-UA-Compatible" content="ie=edge">
+			<title>资料中心</title>
+			<link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all">
+			<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css" media="all">
+			<link rel="stylesheet" href="../src/css/projectcss/publicFan.css" media="all">
+			<link rel="stylesheet" href="../src/css/projectcss/style.css" media="all">
+			<link rel="stylesheet" href="../src/css/projectcss/dataCenter.css" media="all">
+			<script src=></script>
+			<style>
+						.main {
+								margin-top: 25px;
+						}
+						
+						.main .layui-row {
+								color:#23262e;
+								font-weight: normal;
+						}
+			</style>
+</head>
+<body>
+<div class="layui-fluid main">
+  	<div class="layui-row">
+				<div class="wraper">
+						<!--页面头部-->
+						<div class="title"><span>|</span>资料中心</div>
+				 	  <div class="panel-body">
+							 <div class="custom-tabs-line tabs-line-bottom left-aligned">
+									<ul class="nav" role="tablist" id="resTypeList">
+											<li class="active" data-restype="video"><a href="#tab-bottom-left1" role="tab" data-toggle="tab" aria-expanded="true">视频</a></li>
+											<li class="" data-restype="image"><a href="#tab-bottom-left2" role="tab" data-toggle="tab" aria-expanded="false">照片</a></li>
+									</ul>
+									<!-- 照片和视频的标识 -->
+									<input type="hidden" value="0" id="pagetype">
+							 </div>
+							 <!--搜索-->
+							 <div class="inputSearch">
+									<div class="input-group col-md-6 col-sm-8">
+										 <input type="text"  />
+										 <span>搜索</span> 
+									</div>
+							 </div>
+							 <!--过滤条件-->
+							 <div class="filtercondition">
+										<!--类型-->
+											<div class="sl-wrap">
+												 <div class="sl-key fl">
+													 类型：	
+												 </div>
+												 <div class="fl-value fl">
+													  <input type="hidden" id="typeInput" value=""/>
+														<ul id="types">
+															<!-- <li data-id="0">全部</li>
+															<li>保养</li>
+															<li>维修</li> -->
+														</ul>
+												 </div>                       	  	
+											</div>
+											<!--品牌-->
+											 <div class="sl-wrap">
+												 <div class="sl-key fl">
+													 品牌：	
+												 </div>
+												 <div class="fl-value fl">
+													  <input type="hidden" id="pinpInput" value=""/>
+														<ul id="pinp">
+														<!-- 	<li>全部</li>
+															<li>小松</li>
+															<li>威特</li> -->
+														</ul>
+												 </div>                       	  	
+											</div>
+											<!--文件大小-->
+											 <div class="sl-wrap">
+													 <div class="sl-key fl">
+														文件大小：	
+													 </div>
+													 <div class="fl-value fl">
+														<ul>
+															<li>200k以上</li>
+															<li>200-500k</li>
+															<li>500k以上</li>
+														</ul>
+													 </div>                       	  	
+											 </div>
+											<!--机种-->
+											<div class="sl-wrap">
+													 <div class="sl-key fl">
+														机种：
+													 </div>
+													 <div class="fl-value fl">
+														<ul>
+															<li>全部</li>
+															<li>挖掘机</li>
+															<li>推土机</li>
+														</ul>
+													 </div>                       	  	
+											</div> 
+											<!--机型-->
+											<div class="sl-wrap">
+													 <div class="sl-key fl">
+														机型：
+													 </div>
+													 <div class="fl-value fl">
+														<ul>
+															<li>pc--200-8</li>
+															<li>pc-56</li>
+															<li>pc--2000-c</li>
+														</ul>
+													 </div>                       	  	
+											</div> 
+                         	  
+									<!--标签-->
+										<div class="sl-wrap mactag">
+												 <div class="sl-key fl">
+													标签：
+												 </div>
+												 <div class="fl-value fl">
+													<ul>
+														<li>全部</li>
+														<li>二手机</li>
+														<li>三手机</li>
+													</ul>
+												 </div>                       	  	
+										</div> 
+												
+                    <div class="resetBtn">重置</div>    
+             </div>
+                        
+                         <!--视频列表-->
+              <div class="videoBox">
+                 <div class="videoList fl">
+											<div class="videoTitle">
+												 <ul id="videoTitleUl" class="fl">
+													<li class="active">按拍摄时间</li>
+													<li>按上传时间</li>
+												 </ul>
+												 <div class="fr">
+														<select name="modules" lay-verify="required" lay-search="">
+																<option value="">直接选择或搜索选择</option>
+																<option value="1">当日</option>
+																<option value="2">7日</option>
+																<option value="3">一个月</option>
+																<option value="4">三个月</option>
+														</select>
+												</div>
+											 </div>
+											    <!-- 筛选 -->
+											 <div class="readStatus">
+													<form  class="layui-form" action="">
+															<div class="layui-form-item">
+																<label class="layui-form-label">筛选</label>
+																<div class="layui-input-block">
+																	 <input type="radio" name="sex" value="已读" title="已读" checked="">
+																	 <input type="radio" name="sex" value="未读" title="未读">
+																</div>
+															</div>
+													 </form>
+											 </div> 
+                         	   <!-- 视频列表-->
+											 <div class="mediaList">
+													 <ul>
+															<li>
+																	<div class="mediaImg">
+																			<img src="http://smartuat.tygps.com/group1/M00/00/8C/wKhvFVwXVgqABnOwAAATZoyCO1U269.jpg" />
+																			<i class></i>
+																				<div class="cover_control"> 
+																					<span class="operBtn">操作</span>
+																					<div>   
+																						<a class="fa fa-trash"></a> 
+																						<a class="fa fa-bookmark"></a>  
+																					</div>
+																				</div>
+																				<div class="duration">1:30:10</div>
+																	</div>
+																	<div class="videoInfo">
+																		 <div class="videoInfoTitle">
+																			 BAJ55-PC56-500小时保养（1）
+																		 </div>
+																		 <div class="videoCount">
+																			 <p class="watchCount fl"><i></i><span>114</span>次</p>
+																			 <p class="downLoad fr"><i></i><span>22</span>次</p>
+																		 </div>
+																	</div>
+															</li>
+															<li>
+																	<div class="mediaImg">
+																			<img src="http://smartuat.tygps.com/group1/M00/00/8C/wKhvFVwXVgqABnOwAAATZoyCO1U269.jpg" />
+																			<i class></i>
+																				<div class="cover_control"> 
+																					<span class="operBtn">操作</span>
+																					<div>   
+																						<a class="fa fa-trash"></a> 
+																						<a class="fa fa-bookmark"></a>  
+																					</div>
+																				</div>
+																				<div class="duration">1:30:10</div>
+																	</div>
+																	<div class="videoInfo">
+																		<div class="videoInfoTitle">
+																			BAJ55-PC56-500小时保养（1）
+																		</div>
+																		<div class="videoCount">
+																			<p class="watchCount fl"><i></i><span>114</span>次</p>
+																			<p class="downLoad fr"><i></i><span>22</span>次</p>
+																		</div>
+																	</div>
+															</li>
+															<li>
+																	<div class="mediaImg">
+																			<img src="http://smartuat.tygps.com/group1/M00/00/8C/wKhvFVwXVgqABnOwAAATZoyCO1U269.jpg" />
+																			<i class></i>
+																				<div class="cover_control"> 
+																					<span class="operBtn">操作</span>
+																					<div>   
+																						<a class="fa fa-trash"></a> 
+																						<a class="fa fa-bookmark"></a>  
+																					</div>
+																				</div>
+																				<div class="duration">1:30:10</div>
+																	</div>
+																	<div class="videoInfo">
+																		<div class="videoInfoTitle">
+																			BAJ55-PC56-500小时保养（1）
+																		</div>
+																		<div class="videoCount">
+																			<p class="watchCount fl"><i></i><span>114</span>次</p>
+																			<p class="downLoad fr"><i></i><span>22</span>次</p>
+																		</div>
+																	</div>
+															</li>
+															<li>
+																	<div class="mediaImg">
+																			<img src="http://smartuat.tygps.com/group1/M00/00/8C/wKhvFVwXVgqABnOwAAATZoyCO1U269.jpg" />
+																			<i class></i>
+																				<div class="cover_control"> 
+																					<span class="operBtn">操作</span>
+																					<div>   
+																						<a class="fa fa-trash"></a> 
+																						<a class="fa fa-bookmark"></a>  
+																					</div>
+																				</div>
+																				<div class="duration">1:30:10</div>
+																	</div>
+																	<div class="videoInfo">
+																		<div class="videoInfoTitle">
+																			BAJ55-PC56-500小时保养（1）
+																		</div>
+																		<div class="videoCount">
+																			<p class="watchCount fl"><i></i><span>114</span>次</p>
+																			<p class="downLoad fr"><i></i><span>22</span>次</p>
+																		</div>
+																	</div>
+															</li>
+															<li>
+																	<div class="mediaImg">
+																			<img src="http://smartuat.tygps.com/group1/M00/00/8C/wKhvFVwXVgqABnOwAAATZoyCO1U269.jpg" />
+																			<i class></i>
+																				<div class="cover_control"> 
+																					<span class="operBtn">操作</span>
+																					<div>   
+																						<a class="fa fa-trash"></a> 
+																						<a class="fa fa-bookmark"></a>  
+																					</div>
+																				</div>
+																				<div class="duration">1:30:10</div>
+																	</div>
+																	<div class="videoInfo">
+																		<div class="videoInfoTitle">
+																			BAJ55-PC56-500小时保养（1）
+																		</div>
+																		<div class="videoCount">
+																			<p class="watchCount fl"><i></i><span>114</span>次</p>
+																			<p class="downLoad fr"><i></i><span>22</span>次</p>
+																		</div>
+																	</div>
+															</li>
+															<li>
+																	<div class="mediaImg">
+																			<img src="http://smartuat.tygps.com/group1/M00/00/8C/wKhvFVwXVgqABnOwAAATZoyCO1U269.jpg" />
+																			<i class></i>
+																				<div class="cover_control"> 
+																					<span class="operBtn">操作</span>
+																					<div>   
+																						<a class="fa fa-trash"></a> 
+																						<a class="fa fa-bookmark"></a>  
+																					</div>
+																				</div>
+																				<div class="duration">1:30:10</div>
+																	</div>
+																	<div class="videoInfo">
+																		<div class="videoInfoTitle">
+																			BAJ55-PC56-500小时保养（1）
+																		</div>
+																		<div class="videoCount">
+																			<p class="watchCount fl"><i></i><span>114</span>次</p>
+																			<p class="downLoad fr"><i></i><span>22</span>次</p>
+																		</div>
+																	</div>
+															</li>
+															<li>
+																	<div class="mediaImg">
+																			<img src="http://smartuat.tygps.com/group1/M00/00/8C/wKhvFVwXVgqABnOwAAATZoyCO1U269.jpg" />
+																			<i class></i>
+																				<div class="cover_control"> 
+																					<span class="operBtn">操作</span>
+																					<div>   
+																						<a class="fa fa-trash"></a> 
+																						<a class="fa fa-bookmark"></a>  
+																					</div>
+																				</div>
+																				<div class="duration">1:30:10</div>
+																	</div>
+																	<div class="videoInfo">
+																		<div class="videoInfoTitle">
+																			BAJ55-PC56-500小时保养（1）
+																		</div>
+																		<div class="videoCount">
+																			<p class="watchCount fl"><i></i><span>114</span>次</p>
+																			<p class="downLoad fr"><i></i><span>22</span>次</p>
+																		</div>
+																	</div>
+															</li>
+															<li>
+																	<div class="mediaImg">
+																			<img src="http://smartuat.tygps.com/group1/M00/00/8C/wKhvFVwXVgqABnOwAAATZoyCO1U269.jpg" />
+																			<i class></i>
+																				<div class="cover_control"> 
+																					<span class="operBtn">操作</span>
+																					<div>   
+																						<a class="fa fa-trash"></a> 
+																						<a class="fa fa-bookmark"></a>  
+																					</div>
+																				</div>
+																				<div class="duration">1:30:10</div>
+																	</div>
+																	<div class="videoInfo">
+																		<div class="videoInfoTitle">
+																			BAJ55-PC56-500小时保养（1）
+																		</div>
+																		<div class="videoCount">
+																			<p class="watchCount fl"><i></i><span>114</span>次</p>
+																			<p class="downLoad fr"><i></i><span>22</span>次</p>
+																		</div>
+																	</div>
+															</li>
+															<li>
+																	<div class="mediaImg">
+																			<img src="http://smartuat.tygps.com/group1/M00/00/8C/wKhvFVwXVgqABnOwAAATZoyCO1U269.jpg" />
+																			<i class></i>
+																				<div class="cover_control"> 
+																					<span class="operBtn">操作</span>
+																					<div>   
+																						<a class="fa fa-trash"></a> 
+																						<a class="fa fa-bookmark"></a>  
+																					</div>
+																				</div>
+																				<div class="duration">1:30:10</div>
+																	</div>
+																	<div class="videoInfo">
+																		<div class="videoInfoTitle">
+																			BAJ55-PC56-500小时保养（1）
+																		</div>
+																		<div class="videoCount">
+																			<p class="watchCount fl"><i></i><span>114</span>次</p>
+																			<p class="downLoad fr"><i></i><span>22</span>次</p>
+																		</div>
+																	</div>
+															</li>
+															<li>
+																	<div class="mediaImg">
+																			<img src="http://smartuat.tygps.com/group1/M00/00/8C/wKhvFVwXVgqABnOwAAATZoyCO1U269.jpg" />
+																			<i class></i>
+																				<div class="cover_control"> 
+																						<span class="operBtn">操作</span>
+																					<div>   
+																						<a class="fa fa-trash"></a> 
+																						<a class="fa fa-bookmark"></a>  
+																					</div>
+																				</div>
+																				<div class="duration">1:30:10</div>
+																	</div>
+																	<div class="videoInfo">
+																		<div class="videoInfoTitle">
+																			BAJ55-PC56-500小时保养（1）
+																		</div>
+																	<div class="videoCount">
+																			<p class="watchCount fl"><i></i><span>114</span>次</p>
+																			<p class="downLoad fr"><i></i><span>22</span>次</p>
+																		</div>
+																	</div>
+															</li>
+															<li>
+																	<div class="mediaImg">
+																			<img src="http://smartuat.tygps.com/group1/M00/00/8C/wKhvFVwXVgqABnOwAAATZoyCO1U269.jpg" />
+																			<i class></i>
+																				<div class="cover_control"> 
+																					<span class="operBtn">操作</span>
+																					<div>   
+																						<a class="fa fa-trash"></a> 
+																						<a class="fa fa-bookmark"></a>  
+																					</div>
+																				</div>
+																				<div class="duration">1:30:10</div>
+																	</div>
+																	<div class="videoInfo">
+																		<div class="videoInfoTitle">
+																			BAJ55-PC56-500小时保养（1）
+																		</div>
+																		<div class="videoCount">
+																			<p class="watchCount fl"><i></i><span>114</span>次</p>
+																			<p class="downLoad fr"><i></i><span>22</span>次</p>
+																		</div>
+																	</div>
+															</li>
+															<li>
+																	<div class="mediaImg">
+																			<img src="http://smartuat.tygps.com/group1/M00/00/8C/wKhvFVwXVgqABnOwAAATZoyCO1U269.jpg" />
+																			<i class></i>
+																				<div class="cover_control"> 
+																					<span class="operBtn">操作</span>
+																					<div>   
+																						<a class="fa fa-trash"></a> 
+																						<a class="fa fa-bookmark"></a>  
+																					</div>
+																				</div>
+																				<div class="duration">1:30:10</div>
+																	</div>
+																	<div class="videoInfo">
+																		<div class="videoInfoTitle">
+																			BAJ55-PC56-500小时保养（1）
+																		</div>
+																		<div class="videoCount">
+																			<p class="watchCount fl"><i></i><span>114</span>次</p>
+																			<p class="downLoad fr"><i></i><span>22</span>次</p>
+																		</div>
+																	</div>
+															</li>
+															<li>
+																	<div class="mediaImg">
+																			<img src="http://smartuat.tygps.com/group1/M00/00/8C/wKhvFVwXVgqABnOwAAATZoyCO1U269.jpg" />
+																			<i class></i>
+																				<div class="cover_control"> 
+																					<span class="operBtn">操作</span>
+																					<div>   
+																						<a class="fa fa-trash"></a> 
+																						<a class="fa fa-bookmark"></a>  
+																					</div>
+																				</div>
+																				<div class="duration">1:30:10</div>
+																	</div>
+																	<div class="videoInfo">
+																		<div class="videoInfoTitle">
+																			BAJ55-PC56-500小时保养（1）
+																		</div>
+																		<div class="videoCount">
+																			<p class="watchCount fl"><i></i><span>114</span>次</p>
+																			<p class="downLoad fr"><i></i><span>22</span>次</p>
+																		</div>
+																	</div>
+															</li>
+													 </ul>
+											 </div>
+                  </div>
+								 <div class="videoView fr">
+											<div class="videoViewTitle">
+												<ul id="ViewTitleUl" class="fl">
+													<li class="active">观看量</li>
+													<li>下载量</li>
+												 </ul>
+											</div>
+										</div>
+              </div>
+          </div>
+				</div>
+				 	
+			</div>
+		</div>
+	</body>
+	<script src="../plugins/layui/layui.js"></script>
+	<script src="../src/js/jquery.js"></script>
+    <script>
+//      layui.use('jquery', function() {
+//          var $ = layui.jquery;
+//			$("#resTypeList").on("click","li", function(){
+//				$(this).addClass("active").closest("li").siblings("li").removeClass("active")
+//			})
+//      //按时间和上传时间拍摄
+//			$("#videoTitleUl").on("click","li", function(){
+//				$(this).addClass("active").siblings("li").removeClass("active")
+//			})
+//			
+////		观看量和下载量
+//		$("#ViewTitleUl").on("click","li", function(){
+//			$(this).addClass("active").siblings("li").removeClass("active")
+//		})	
+//
+//			
+//      });
+//      
+        
+ layui.use(['form', 'layedit', 'laydate','jquery'], function(){
+	  var form = layui.form
+	  ,layer = layui.layer
+	  ,layedit = layui.layedit
+	  ,laydate = layui.laydate
+	  ,$ = layui.jquery;
+	  //视频
+ 		$("#resTypeList").on("click","li", function(){
+				$(this).addClass("active").closest("li").siblings("li").removeClass("active");
+				$("#pagetype").val($(this).index());
+				loaddata($(this).index());
+				
+		//把类型和品牌的值都清空
+			$("#typeInput").val("");
+			$("#pinpInput").val("");
+		})
+	
+    //按时间和上传时间拍摄
+		$("#videoTitleUl").on("click","li", function(){
+			$(this).addClass("active").siblings("li").removeClass("active")
+		})
+			
+//		观看量和下载量
+		$("#ViewTitleUl").on("click","li", function(){
+			$(this).addClass("active").siblings("li").removeClass("active")
+		})	
+  
+ //类型的点击事件
+ $("#types").on("click","li",function(){
+	  // $(this).index();
+		///得到自定义属性的id
+		// alert()
+			$("#typeInput").val($(this).data("id"))
+			 var pagetype=$("#pagetype").val();
+			 loaddata(pagetype);
+ })
+ 
+ // 品牌
+ $("#pinp").on("click","li",function(){
+ 		 $("#pinpInput").val($(this).data("id"));
+		 var pagetype=$("#pagetype").val()
+     loaddata(pagetype);
+  
+});
+})    
+		
+		
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				// loaddata(0);
+				$.ajax({
+					url:"test.json",
+					type:"get",
+					success:function(res){
+						console.log(44,res);
+						for(var i=0;i<res.arrs.length;i++){
+								$("#types").append(`
+								  <li data-id="${res.arrs[i].id}">${res.arrs[i].type}</li>
+								`)
+						}
+						
+						for(var i=0;i<res.pinp.length;i++){
+								$("#pinp").append(`
+									<li data-id="${res.pinp[i].id}">${res.pinp[i].type}</li>
+								`)
+						}
+
+						
+					}
+				})
+			})
+			 function loaddata(pagetype){
+					 var type=''
+					 if(pagetype==0) {
+						 type='shipin';
+						 // 两条接口在这里ajax请求
+					 }else {
+						 type='tupian';
+						 // 两条接口在这里ajax请求
+					 }
+					 //获取类型的
+					 var types=$("#typeInput").val();
+					 var pinp =$("#pinpInput").val();
+					 
+					 
+					 console.log(99,type,types,pinp)
+					 //,图片和视频在一条接口时  通过我传的type值来判断是视频还是图片
+					
+			}
+			
+			
+			
+			
+			
+		</script>
+</html>

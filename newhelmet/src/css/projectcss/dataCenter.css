@@ -1,0 +1,220 @@
+.panel-body{
+	width: 100%;
+	overflow:hidden;
+	padding:0 20px;
+	box-sizing: border-box;
+}
+.custom-tabs-line{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	font-size:16px ;
+	color: #333;
+}
+.custom-tabs-line ul li a{
+	padding-bottom: 5px;
+}
+.custom-tabs-line ul li{
+  float: left;
+  padding: 0 10px;
+      font-weight: normal;
+}
+.custom-tabs-line .nav .active a{
+	border-bottom: 1px solid #55C5DD;
+	color: #55C5DD;
+}
+.input-group{
+	width:600px;
+	height: 45px;
+	
+	margin: 0 auto;
+	position: relative;
+	border: 1px solid #CCCCCC;
+}
+.input-group input{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+	
+}
+.input-group span{
+	display: inline-block;
+	width: 100px;
+	height:45px;
+	line-height: 45px;
+	text-align: center;
+	position: absolute;
+	top: 0;right:0;
+	font-size:16px;
+	background: #D7D7D7;
+	color: #666;
+	
+}
+.filtercondition{
+	width:100%;
+	overflow: hidden;
+}
+.filtercondition .sl-wrap{
+		width:100%;
+	overflow: hidden;
+	line-height: 45px;
+	height: 45px;
+}
+.sl-wrap .sl-key{
+	width:75px;
+}
+.fl-value ul li{
+	padding: 0 20px;
+}
+.fl-value ul li{
+	float: left;
+}
+.mactag .fl-value{
+	margin-top: 5px;
+}
+.mactag .fl-value ul li{
+  padding: 0 10px;
+  margin:0 10px;
+  height:35px ;
+  line-height: 35px;
+  border:1px solid #33ABA0;
+  border-radius: 30px;
+  
+}
+.resetBtn{
+	width:100px;
+	height:32px;
+	line-height: 32px;
+	background:#FC5E1F ;
+	color: #fff;
+	text-align: center;
+	border-radius: 10px;
+	margin-top: 20px;
+	
+}
+.videoBox{
+	width: 100%;
+	overflow:hidden;
+}
+.videoList{
+	width: 100%;
+}
+.videoTitle{
+	width: 100%;
+	height:45px;
+	line-height: 45px;
+	margin-top: 30px;
+	border-bottom: 1px solid #33ABA0;
+	
+}
+.videoTitle ul{
+	overflow: hidden;
+}
+.videoTitle ul li{
+	float: left;
+	padding: 0 20px;
+	
+}
+.videoTitle ul li.active{
+	background: #33ABA0;
+	color: #fff;
+	border-radius:10px ;
+}
+.videoList{
+	width: calc(100% - 200px);
+}
+.videoView{
+	width: 200px;
+	margin-top: 80px;
+}
+.videoViewTitle ul li{
+	float: left;
+	margin:0 20px;
+}
+.videoViewTitle ul li.active{
+	color: #33ABA0;
+	border-bottom: 1px solid #33ABA0;
+}
+.readStatus{
+	height: 50px;
+	line-height: 50px;
+	overflow:hidden;
+}
+.layui-form-label{
+	line-height:35px;
+}
+.mediaList{
+	width:100%;
+	margin-top:20px;
+	
+}
+.mediaList ul{
+/* 	overflow: hidden; */
+}
+.mediaList ul li{
+	width:195px;
+	float: left;
+	margin-right: 20px;
+	margin: 0 20px 20px 0;
+
+}
+.mediaList ul li .mediaImg {
+	position: relative;
+}
+	
+.mediaList ul li .mediaImg img{
+	width: 100%;
+}
+.mediaList ul li .mediaImg i{
+	border:1px solid #ccc;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background:#fff;
+	position: absolute;
+	top: -5px;
+	right: -5px;
+}
+.mediaImg .duration{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+	color:#fff;
+}
+.cover_control{
+	width: 80px;
+	height: 50px;
+	position: absolute;
+	bottom:0;
+	right: 0;
+	
+}
+.cover_control  span{
+	opacity: 0;
+}
+.videoInfoTitle{
+	margin-top: 5px;
+	line-height: 25px;
+}
+.videoCount{
+	overflow: hidden;
+	margin-top: 20px;
+	
+}
+.videoCount i{
+		display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+.videoCount .watchCount i{
+
+	background: url(../../images/icon_bf.png);
+	
+}
+.videoCount .downLoad i{
+	background: url(../../images/icon_download.png);
+	
+}

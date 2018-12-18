@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./plugins/font-awesome/css/font-awesome.min.css" media="all">
+	<link rel="stylesheet" href="src/css/projectcss/publicFan.css" media="all">
+	<link rel="stylesheet" href="src/css/projectcss/style.css" media="all">
+    <style>
+        .main {
+            margin-top: 25px;
+        }
+        
+        .main .layui-row {
+            color:#23262e;
+            font-weight: bold;
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-fluid main">
+		 <div class="layui-row">
+			 <div class="wraper">
+			   <!--页面头部-->
+				<div class="title"><span>|</span>管理首页</div>
+				  <!--图标展示位置-->
+				<div class="iconShowCon">
+					<div class="setImgBox ">
+						<div class="setImg fr">
+							<img src="src/images/icon_set.png" title="将不需要的功能图标拖到这里试试吧"  class=""/>
+						</div>
+					</div>
+					<!--拖拽左侧-->
+					<div class="iconShowLeft fl">
+						<ul class="draglist" id="list1" data-groupid="gid-1">
+							<li data-id="1" data-groupid="gid-1">
+								<img src="src/images/icon_count.png"/>
+								<p>账户管理1</p>
+							</li>
+							<li data-id="2" data-groupid="gid-1">
+								<img src="src/images/icon_count.png"/>
+								<p>账户管理2</p>
+							</li>
+							<li data-id="3" data-groupid="gid-1">
+								<img src="src/images/icon_count.png"/>
+								<p>账户管理3</p>
+							</li>
+							<li data-id="4" data-groupid="gid-1">
+								<img src="src/images/icon_count.png"/>
+								<p>账户管理4</p>
+							</li>
+							<li data-id="5" data-groupid="gid-1">
+								<img src="src/images/icon_count.png"/>
+								<p>账户管理5</p>
+							</li>
+							<li data-id="6" data-groupid="gid-1">
+								<img src="src/images/icon_count.png"/>
+								<p>账户管理6</p>
+							</li>
+							<li data-id="7" data-groupid="gid-1">
+								<img src="src/images/icon_count.png"/>
+								<p>账户管理7</p>
+							</li>
+							<li data-id="8" data-groupid="gid-1">
+								<img src="src/images/icon_count.png"/>
+								<p>账户管理8</p>
+							</li>
+							<li data-id="9" data-groupid="gid-1">
+								<img src="src/images/icon_count.png"/>
+								<p>账户管理9</p>
+							</li>
+							<li data-id="10" data-groupid="gid-1">
+								<img src="src/images/icon_count.png"/>
+								<p>账户管理10</p>
+							</li>
+						</ul>
+						<input name="sortorder" id ="gid-1" type="hidden" value="1,2,3,4,5,6,7,8,9,10"/>
+					</div>
+					<!--拖拽右侧-->
+					<div class="iconShowRight fr">
+						<ul class="draglist" id="list2" data-groupid="gid-2">
+							<li data-id="11" data-groupid="gid-2">
+								<img src="src/images/icon_count.png"/>
+								<p>账户管理11</p>
+							</li>
+							<li data-id="12" data-groupid="gid-2">
+								<img src="src/images/icon_list.png"/>
+								<p>账户管理12</p>
+							</li>
+							<li data-id="13" data-groupid="gid-2">
+								<img src="src/images/icon_map.png"/>
+								<p>账户管理13</p>
+							</li>
+							<li data-id="14" data-groupid="gid-2">
+								<img src="src/images/icon_set.png"/>
+								<p>账户管理14</p>
+							</li>
+						</ul>
+						<input name="sortorder" id ="gid-2" type="hidden" value="11,12,13,14" />
+					</div>
+					
+				</div>
+			
+		     </div>
+		 </div>       
+    </div>
+    <script src="./plugins/layui/layui.js"></script>
+	<script src="src/js/jquery.js"></script>
+	<script src="src/js/jquery.dragsort-0.5.2.min.js"></script>
+    <script>
+        layui.use('jquery', function() {
+            var $ = layui.jquery;
+            $('#test').on('click', function() {
+                parent.message.show({
+                    skin: 'cyan'
+                });
+            });
+			
+				//初始化插件
+		$(".draglist").dragsort({
+			dragSelector: "li",
+			dragBetween: true,
+			dragEnd: saveOrder, //拖拽完成后回调函数
+			placeHolderTemplate: "<li class='placeHolder'><div></div></li>" //拖动是阴影
+		});
+		//拖拽完成后回调函数
+		function saveOrder() {
+			var $this = $(this);
+			var data = $this.parent().children().map(function() {
+				return $this.attr("data-id");
+			}).get();
+			var currentid = $this.attr("data-id"); //元素id
+			var oldgroupid = $this.attr("data-groupid"); //所属组id
+			var groupid = $this.parent().attr("data-groupid"); //目标组id
+			//console.log(data,currentid,oldgroupid,groupid)
+			//跨组移动、移除旧组信息
+			if (oldgroupid != groupid) {
+				var oldgroup = $("#" + oldgroupid);//找到之前存储的input
+				var groupval = oldgroup.val().replace(currentid, "");//原input去除被移动元素
+				oldgroup.val(groupval);	//原数组input重新赋值
+				console.log(oldgroup.val())
+			}
+			$("#" + groupid).val(data.join(",")); //添加所属组记录
+			console.log($("#" + groupid).val())
+			$this.attr("data-groupid", groupid); //改变元素所属组id 
+		};
+		//保存位置
+		function savePosition() {
+		    //获取两个数组数据并返给后台
+		} 
+			
+			
+        });
+    </script>
+</body>
+
+</html>

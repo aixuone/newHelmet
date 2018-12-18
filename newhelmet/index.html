@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Layui 后台系统</title>
+    <!--layui css-->
+    <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
+    <!--字体图标  css-->
+    <link rel="stylesheet" type="text/css" href="plugins/font-awesome/css/font-awesome.min.css"/>
+    <!--layui系统样式-->
+    <link rel="stylesheet" type="text/css" href="build/css/app.css"/>
+    <link rel="stylesheet" href="build/css/themes/default.css" media="all" id="skin" kit-skin />
+    <link rel="stylesheet" href="src/css/projectcss/style.css" media="all">
+		<style>
+			.topright a{
+				padding:0 10px !important;
+			}
+		</style>
+</head>
+
+<body class="kit-theme">
+    <div class="layui-layout layui-layout-admin kit-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">后台运维管理系统</div>
+            <div class="layui-logo kit-logo-mobile">K</div>
+            
+            <!--头部标题块结束-->
+            <!--头部标题块   此块包含皮肤替换代码，以及推出，修改资料等-->
+            <ul class="layui-nav layui-layout-right kit-nav topright">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="./src/images/icon_user.png" class="layui-nav-img"> 用户名
+                    </a>
+                </li>
+				<li class="layui-nav-item">
+					<a href="javascript:;">
+					    <img src="./src/images/icon_top.png" class="layui-nav-img"> 
+				    </a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="javascript:;">
+					     <img src="./src/images/icon_ewm.png" class="layui-nav-img"> 
+				    </a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="javascript:;">
+					     <img src="./src/images/icon_logout.png" class="layui-nav-img"> 
+				    </a>
+				</li>
+                <!--<li class="layui-nav-item"><a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a></li>-->
+            </ul>
+            <!--头部标题块结束-->
+        </div>
+		<!--layui-header  end-->
+		<!--左侧导航块-->
+        <div class="layui-side layui-bg-black kit-side">
+            <div class="layui-side-scroll">
+                <div class="kit-side-fold"><i class="fa fa-navicon" aria-hidden="true"></i></div>
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
+									<li class="layui-nav-item">
+										<a class="" href="javascript:;"><i class="fa fa-user" aria-hidden="true"></i><span> 用户管理</span></a>
+										<dl class="layui-nav-child ">
+											<dd>
+													<a href="javascript:;" kit-target data-options="{url:'main.html',title:'账户管理',id:'1'}">
+															<span> 账户管理</span>												
+													</a>
+											</dd>
+											<dd>
+													<a href="javascript:;" kit-target data-options="{url:'danwei.html',title:'单位管理',id:'2'}">
+															<span> 单位管理</span>												
+													</a>
+											</dd>
+											<dd>
+													<a href="javascript:;" kit-target data-options="{url:'html/123.html',title:'通讯录',id:'3'}">
+															<span> 通讯录</span>												
+													</a>
+											</dd>
+										</dl>
+									</li>
+									<li class="layui-nav-item">
+										<a class="" href="javascript:;"><i class="fa fa-user" aria-hidden="true"></i><span> 设备管理</span></a>
+										<dl class="layui-nav-child ">
+											<dd>
+													<a href="javascript:;" kit-target data-options="{url:'list.html',title:'设备台账',id:'4'}">
+															<span> 设备台账</span>												
+													</a>
+											</dd>
+											<dd>
+													<a href="javascript:;" kit-target data-options="{url:'list.html',title:'出库登记',id:'5'}">
+															<span> 出库登记</span>												
+													</a>
+											</dd>
+											<dd>
+													<a href="javascript:;" kit-target data-options="{url:'list.html',title:'设备历史记录查询',id:'6'}">
+															<span> 设备历史记录查询</span>												
+													</a>
+											</dd>
+											<dd>
+													<a href="javascript:;" kit-target data-options="{url:'list.html',title:'设备地图',id:'7'}">
+															<span> 设备地图</span>												
+													</a>
+											</dd>
+										</dl>
+									</li>
+									<li class="layui-nav-item">
+										<a class="" href="javascript:;"><i class="fa fa-user" aria-hidden="true"></i><span> 数据分析</span></a>
+										<dl class="layui-nav-child ">
+											<dd>
+													<a href="javascript:;" kit-target data-options="{url:'html/datacenter.html',title:'资料中心',id:'8'}">
+															<span> 资料中心</span>												
+													</a>
+											</dd>
+										</dl>
+									</li>
+									<li class="layui-nav-item">
+										<a class="" href="javascript:;"><i class="fa fa-user" aria-hidden="true"></i><span> 权限管理</span></a>
+										<dl class="layui-nav-child ">
+											<dd>
+													<a href="javascript:;" kit-target data-options="{url:'list.html',title:'角色管理',id:'9'}">
+															<span> 角色管理</span>												
+													</a>
+											</dd>
+										</dl>
+									</li>
+
+                </ul>
+            </div>
+        </div>
+        <!--左侧导航块结束-->
+        <!--layui-body 为主体内容部分，所有页面是通过iframe的形式来进行加载的，所以主体部分的页面是分出来的-->
+        <div class="layui-body" id="container">
+            <!--
+            	 内容主体区域，主体入口的页面在tab.js里有个mainUrl处设置，目前设置的是main.html，下面是刷新时显示的文本
+            -->
+            <div style="padding: 15px;"><i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop">&#xe63e;</i> 请稍等...</div>
+            
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            2018 &copy;
+            <a href="index.html">我是底部</a>  license
+        </div>
+    </div>
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1264021086'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1264021086%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script src="plugins/layui/layui.js"></script>
+    <script>
+		//页面上加载jquery   很重要
+		//layui.use('jquery', function() {
+		 //   var $ = layui.jquery;
+		  //  $('#test').on('click', function() {
+		   //     parent.message.show({
+		    //        skin: 'cyan'
+		     //   });
+		   // });
+		//});
+		
+        var message;
+        layui.config({
+            base: 'build/js/',
+            version: '1.0.1'
+        }).use(['app', 'message'], function() {
+            var app = layui.app,
+                $ = layui.jquery,
+                layer = layui.layer;
+            //将message设置为全局以便子页面调用
+            message = layui.message;
+            //主入口
+            app.set({
+                type: 'iframe'
+            }).init();
+            //捐赠我，点击弹出框
+            $('#pay').on('click', function() {
+                layer.open({
+                    title: false,
+                    type: 1,
+                    content: '<img src="src/images/pay.png" />',
+                    area: ['500px', '250px'],
+                    shadeClose: true
+                });
+            });
+            //皮肤更换代码
+            $('dl.skin > dd').on('click', function() {
+                var $that = $(this);
+                var skin = $that.children('a').data('skin');
+                switchSkin(skin);
+            });
+            var setSkin = function(value) {
+                    layui.data('kit_skin', {
+                        key: 'skin',
+                        value: value
+                    });
+                },
+                getSkinName = function() {
+                    return layui.data('kit_skin').skin;
+                },
+                switchSkin = function(value) {
+                    var _target = $('link[kit-skin]')[0];
+                    _target.href = _target.href.substring(0, _target.href.lastIndexOf('/') + 1) + value + _target.href.substring(_target.href.lastIndexOf('.'));
+                    setSkin(value);
+                },
+                initSkin = function() {
+                    var skin = getSkinName();
+                    switchSkin(skin === undefined ? 'default' : skin);
+                }();
+                
+                
+        });
+    </script>
+</body>
+
+</html>
