@@ -12,27 +12,7 @@
 	<link rel="stylesheet" href="../src/css/projectcss/dataCenter.css" >
 	<link rel="stylesheet" href="../src/css/projectcss/dataDetail.css" >
 	<style>
-		.playVideo{position: relative;}
-		.btns{
-			width: 100%;
-			height: 45px;
-			line-height: 45px;
-			box-sizing: border-box;
-			position: absolute;
-			left: 0;
-			bottom:0 ;
-			z-index: 20;
-			background: rgba(225,225,225,0.3);
-			padding: 0 15px;
-		}
-		.gnpanel{
-			height: 45px;
-			line-height: 45px;
-			background: #333;
-			box-sizing: border-box;
-			padding: 0 15px;
-			width: 762px;
-		}
+
 	</style>
 </head>
 <body>
@@ -42,23 +22,20 @@
             		<!--页面头部-->
 				<div class="title"><span>|</span>数据分析>资料中心</div>
             	<div class="videoBox">
-            		
             		<!--视频-->
-            		<div class="playVideo">
-            		  	<video width="100%" height="100%" poster="../src/images/icon_bg.png" controls  id="myvideo">
-            		  		<source src="http://smartuat.tygps.com/group1/M00/00/73/wKhvFVv594iASlXIBJm4ouDR4X8180.mp4" type="video/mp4"></source>
-            		  		<source src="http://demo.htmleaf.com/1810/201810171450/ckin.mp4" type="video/ogg"></source>
-            		  		<source src="http://demo.htmleaf.com/1810/201810171450/ckin.mp4" type="video/webm"></source>
-            		  		当前浏览器不支持 video直接播放
-            		  	</video>
-            			<!--<div class="btns">
-            				<div class="fl v-play curP marr15">播放</div>
-            				<div class="fl marr15">
-            					<span class="current">0:00</span>/<span class="duration">0:00</span>
-            				</div>
-            			</div>-->
-            			
+            		<div class="playVideoBox">
+	            		<div class="playVideo" id="playVideo">
+	            		  	<video width="100%" height="100%" poster="../src/images/icon_bg.png" controls  id="myvideo">
+	            		  		<source src="http://smartuat.tygps.com/group1/M00/00/73/wKhvFVv594iASlXIBJm4ouDR4X8180.mp4" type="video/mp4"></source>
+	            		  		<source src="http://demo.htmleaf.com/1810/201810171450/ckin.mp4" type="video/ogg"></source>
+	            		  		<source src="http://demo.htmleaf.com/1810/201810171450/ckin.mp4" type="video/webm"></source>
+	            		  		当前浏览器不支持 video直接播放
+	            		  	</video>
+	            			
+	            			<p class="rotateBtn" onclick="rotates()">旋转</p>
+	            		</div>
             		</div>
+            	
             		<div class="gnpanel">
             			<div class="fl marr15 curP">
 							返回视频列表
@@ -87,43 +64,143 @@
             		    	<p class="fl">上传时间：<span>1200秒</span></p>
             		    </div>
             		    <div class="unilineInfo">
-            		    	<p class="fl position">位置：<span>石家庄高新区黄河大道225</span><i class="map"></i></p>
-            		    	<p class="fl voice">语音备注：<span></span><i class=""></i></p>
+            		    	<p class="fl position">位置：<span>石家庄高新区黄河大道225</span><i class="map" onclick="mapFun()"></i></p>
+            		    	<p class="fl voice" onclick="voiceFun()">语音备注：<span></span><i class=""></i></p>
             		    </div>
             		    <div class="unilineInfo videotag">
             		        <span class="fl">标签：</span>
             		        <p>保养</p> 
             		        <p>发动机</p>
-            		        <p>+</p> 
+            		        <p onclick="tagFun">+</p> 
             		    </div>
-            			
+            			<!--地图-->
+            			<div class="mapwrap hide" id="container"></div>
             		</div>
-            		
             	</div>
-            	
             </div>
 
         </div>
     </div>   
-    <script src="../src/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+ 
+ <!--以下为语音的弹框-->
+    <div class="Popupvoice" id="Popupvoice">
+    	<form class="layui-form">
+    		 <div class="layui-form-item layui-form-text">
+			    <div class="layui-input-block">
+			      <textarea placeholder="请输入语音备注" class="layui-textarea"></textarea>
+			    </div>
+             </div>
+             <div class="layui-form-item voiceBtn">
+			    <div class="layui-input-block">
+			      <button class="layui-btn" lay-submit="" lay-filter="demo1">保存</button>
+			      <button class="layui-btn layui-btn-danger">取消</button>
+			    </div>
+            </div>
+    	</form>
+    </div>
+    
+ <!--标签的弹框-->   
+ 
+ <div class="videoTag" id="videoTag">
+ 	<form class="layui-form">
+    	
+    </form>
+ 	
+ </div>
+ 
+ 
+    
+    
+    
+    
+    
+<script src="../src/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://webapi.amap.com/maps?v=1.4.8&key=344acf3230f8ac064db3eb9db89d0c8c"></script>
+<script src="../plugins/layui/layui.js"></script>
     <script type="text/javascript">
-    	var video=document.getElementById('myvideo');
-    	$('.v-play').on('click',function(){
-    		if(video.paused){
-    			video.play();
-    			$(this).text('暂停')
-    		}else{
-    			video.pause();
-    			$(this).text('播放')
-    		}
-    	})
-    	$('#myvideo').on('timeupdate',function(event){
-    		trackedvieo(this.currentTime,this.duration);
-    	})
-    	function trackedvieo(currentTime,duration){
-    		$(".current").text(currentTime);
-    		$(".duration").text(duration);
-    	}
-    </script>
+//  	var video=document.getElementById('myvideo');
+//  	$('.v-play').on('click',function(){
+//  		if(video.paused){
+//  			video.play();
+//  			$(this).text('暂停')
+//  		}else{
+//  			video.pause();
+//  			$(this).text('播放')
+//  		}
+//  	})
+//  	$('#myvideo').on('timeupdate',function(event){
+//  		trackedvieo(this.currentTime,this.duration);
+//  	})
+//  	function trackedvieo(currentTime,duration){
+//  		$(".current").text(currentTime);
+//  		$(".duration").text(duration);
+//  	}
+
+//点击显示地图
+	function mapFun(){
+		  if($("#container").hasClass("hide")){
+		  	
+		  	 $("#container").fadeIn().removeClass("hide").addClass("show");
+		  }else{
+		  	 $("#container").fadeOut().removeClass("show").addClass("hide");
+		  }
+	}
+	//初始化地图对象，加载地图
+	function init(){
+		var map = new AMap.Map('container', {
+				resizeEnable: true,
+				center: [114.623,38.045],  //经纬度
+				zoom: 13
+		});
+		map.plugin(["AMap.ToolBar"], function() {
+					map.addControl(new AMap.ToolBar());
+			});
+			var marker;
+			var icon = new AMap.Icon({  //图标大小和尺寸
+					image: 'http://vdata.amap.com/icons/b18/1/2.png',
+					size: new AMap.Size(24, 24)
+			});
+			marker = new AMap.Marker({  //图标放到地图上
+					offset: new AMap.Pixel(-12, -12),
+					zIndex: 101,
+					map: map
+			});
+	}
+	init();
+</script>
+    
+ <script>
+// 	语音的弹框
+ layui.use('layer', function(){
+	   var $ = layui.jquery,
+           layer = layui.layer;
+	//点击语音备注时
+		voiceFun =function(){
+			layer.open({
+			  type: 1,
+			  area: ['484px', '313px'],
+			  shade: 0.4,
+			  content: $('#Popupvoice')
+			});
+		}
+  }); 
+ 	
+
+var deg = 0;
+function rotates (){
+	console.log(111)
+    deg += 90;
+	    $('.playVideoBox')[0].style.transform = 'rotate('+deg+'deg)';
+        //$('#playVideo').css("transform","rotate("+deg+"deg)");  //这样写会报错
+console.log(this.deg)
+}
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ </script>   
+             
 </body>
 </html>
