@@ -1,0 +1,34 @@
+{
+	"tableList":[
+	    {
+	    "id":"1",
+	    "account":"账户1",
+	    "username":"姓名",	
+	    "sex":"性别",
+	    "birthday":"生日",
+	    "number":"13048794389",
+	    "unit":"单位",	
+	    "department":"部门",   
+	    "date":"2018.12.20",
+	    "character":"角色1",
+	    "status":"状态"
+	    },
+	    {
+	    "id":"2",
+	    "account":"账户2",
+	    "username":"姓名2",	
+	    "sex":"性别",
+	    "birthday":"生日",
+	    "number":"15048794389",
+	    "unit":"单位",	
+	    "department":"部门",   
+	    "date":"2018.12.20",
+	    "character":"角色1",
+	    "status":"状态"
+	    	
+	    }
+	
+	]
+	
+	
+}

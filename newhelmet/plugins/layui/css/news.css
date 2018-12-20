@@ -1,9 +1,0 @@
-/*公用*/
-input{-webkit-appearance: none; -moz-appearance: none; -o-appearance: none; appearance: none;outline:0;border:1px solid #ebebeb}
-.news_search{ padding:10px 10px; }
-.layui-table,.layui-table th{ text-align:center; }
-.news_list .layui-form-switch{ margin-top:0; }
-
-/*分页*/
-#page{ text-align:right; }
-.input_add{padding:3px 5px;border-radius: 5px;text-align: center;color: #434343;}

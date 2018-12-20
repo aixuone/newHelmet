@@ -316,10 +316,10 @@
 	height: 100%;
 	border: 0;
 }	
-.cover_control{
+.cover_control>div{
 	display: none;
 }
-.mediaList ul li:hover .cover_control{
+.mediaList ul li .mediaImg .cover_control:hover div{
 	display: block;
 }
 .form-select{

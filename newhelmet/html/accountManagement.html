@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>账户管理</title>
+		<link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/publicFan.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/style.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/dataCenter.css" media="all">
+		<style>
+			.layui-input-inline{
+				height: 30px;
+				margin-top: 10px;
+			}
+		  .colorGray{
+		  	background:#F2F2F2;
+		  	color: #333333;
+		  }
+		  .layui-inline{
+		  	
+		  }
+		  .panel-title{
+		  	padding:8px 0;
+		  }
+	    </style>
+	</head>
+	<body>
+		<div class="layui-fluid main">
+		   <div class="layui-row">
+			 <div class="wraper">
+			 		<!--页面头部-->
+				<div class="title"><span>|</span>用户管理-账户管理</div>
+			 	<div class="panel-body">
+			 		<form class="layui-form" action="">
+			 			<div class="panel-title">
+							  <div class="layui-form-item">
+							    <div class="layui-inline">
+							      <label class="layui-form-label">搜索选择框</label>
+							      <div class="layui-input-inline">
+							        <select name="modules" lay-verify="required" lay-search="">
+							          <option value="">田一科技</option>
+							          <option value="1">天远</option>
+							          <option value="2">天远2/option>
+							        </select>
+							      </div>
+							    </div>
+							    
+						       <div class="layui-inline">
+							      <label class="layui-form-label">用户名</label>
+							      <div class="layui-input-inline">
+							        <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+							      </div>
+							    </div>
+							    
+							      <button class="layui-btn colorGray" data-type="reload">搜索</button>
+							      <button class="layui-btn" data-type="reload">更多搜索</button>
+							      <button class="layui-btn layui-btn-danger" data-type="reload">新增用户</button>
+							  </div>
+			 	      </div>      
+                      
+			 		</form>
+			 		
+			 		 <table class="layui-hide" id="test"></table>
+			     </div>
+		     </div>
+		   </div>
+		</div>
+	</body>
+	
+	<script type="text/html" id="barDemo">
+	  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+	  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+	
+	
+<script src="../plugins/layui/layui.js"></script>
+<script src="../src/js/jquery.js"></script>
+<script>
+
+	layui.use(['form','table' ,'layedit', 'laydate'], function(){
+         var form = layui.form;
+         var table = layui.table;
+          table.render({
+			    elem: '#test'
+			    ,url:'../datas/table.json'
+			    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+			    ,cols: [[
+			      {field:'id', title: 'ID'}
+			      ,{filed:'account',title:'账户'}
+			      ,{field:'username', title: '用户名'}
+			      ,{field:'sex',title: '性别'}
+			      ,{field:'birthday', title: '生日'}
+			      ,{field:'number',  title: '联系电话'}
+			      ,{field:'unit',  title: '单位'}
+			      ,{field:'department ', title: '所属部门', width: '30%', minWidth: 100} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+			      ,{field:'date', title: '日期'}
+			      ,{field:'character', title: '角色'}
+			      ,{field:'status', title: '状态'}
+			      ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+			    ]]
+        });
+	})
+	
+	
+	
+	
+</script>	
+	
+</html>

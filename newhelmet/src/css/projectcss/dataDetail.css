@@ -148,7 +148,7 @@
 }
 .videoTag{
 	width: 340px;
-	height: 275px;
+	/*height: 275px;*/
 	border: 1px solid #333;
     border-radius: 20px;
 }
