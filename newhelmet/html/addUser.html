@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>新增用户弹框</title>
+		<link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/publicFan.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/style.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/dataCenter.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/dataCenter.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/accountManagement.css" />
+		<style>
+			.layui-form-item{
+				width: 325px;
+			}
+			
+			.layui-form{
+			    margin-left: 100px;
+		        padding-top: 20px;
+            }
+
+		</style>
+	</head>
+	<body>
+			<!--新增用户的弹框-->	
+	
+	<div class="addUser" id="addUser">
+
+		<form class="layui-form">
+             <div class="layui-form-item">
+			    <label class="layui-form-label labelText">
+			    	登录账号
+			    </label>
+			    <div class="layui-input-block">
+			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+			    </div>
+ 			 </div>
+			<div class="layui-form-item">
+			    <label class="layui-form-label labelText">
+			                    用户姓名
+			    </label>
+			    <div class="layui-input-block">
+			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+			    </div>
+ 			 </div>
+			 <div class="layui-form-item">
+			    <label class="layui-form-label labelText">
+			    	性别
+			    </label>
+			    <div class="layui-input-block">
+			      <input type="radio" name="sex" value="男" title="男" checked="">
+			      <input type="radio" name="sex" value="女" title="女">
+			    </div>
+  			</div>
+		    <div class="layui-form-item">
+			    <label class="layui-form-label" style="padding: 0;">
+			    	生日
+			    </label>
+			    <div class="layui-input-block">
+			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入生日" class="layui-input">
+			    </div>
+  			</div>
+  			<!--电话-->
+			 <div class="layui-form-item">
+			    <label class="layui-form-label labelText">
+			    	电话
+			    </label>
+			    <div class="layui-input-block">
+			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入电话" class="layui-input">
+			    </div>
+  			</div> 
+  			
+  			 <div class="layui-form-item">
+			     <div class="layui-inline">
+				      <label class="layui-form-label labelText pullDown">
+				      	所属单位
+				      </label>
+				      <div class="layui-input-inline">
+				        <select name="modules" lay-verify="required" lay-search="">
+				          <option value="">所属单位1</option>
+				          <option value="1">所属单位2</option>
+				          <option value="2">所属单位3</option>
+				        </select>
+				      </div>
+   				</div>
+  			</div> 
+  			
+  			<div class="layui-form-item">
+			     <div class="layui-inline">
+				      <label class="layui-form-label labelText pullDown">
+				      	所属部门
+				      </label>
+				      <div class="layui-input-inline">
+				        <select name="modules" lay-verify="required" lay-search="">
+				          <option value="">所属部门1</option>
+				          <option value="1">所属部门2</option>
+				          <option value="2">所属部门13</option>
+				        </select>
+				      </div>
+   				</div>
+  			</div> 
+  			
+  			<div class="layui-form-item">
+			     <div class="layui-inline">
+				      <label class="layui-form-label labelText pullDown" >角色</label>
+				      <div class="layui-input-inline">
+				        <select name="modules" lay-verify="required" lay-search="">
+				          <option value="">角色1</option>
+				          <option value="1">角色2</option>
+				          <option value="2">角色3</option>
+				        </select>
+				      </div>
+   				</div>
+  			</div> 
+  			<div class="layui-form-item" style="text-align:center;">
+  				  <div class="layui-btn">保存</div>
+                  <div class="layui-btn layui-btn-danger">取消</div>
+  			</div>
+		</form>
+	</div>	
+	</body>
+	<script src="../src/js/jquery.js"></script>	
+<script src="../plugins/layui/layui.js"></script>
+<script>
+	layui.use(['form','table' ,'layedit', 'laydate'], function(){
+         var form = layui.form,
+             table = layui.table,
+         	 layer = layui.layer,
+         	 $ = layui.jquery;
+         	 
+     })    	 
+         	 
+	
+	
+	
+</script>	
+	
+	
+</html>

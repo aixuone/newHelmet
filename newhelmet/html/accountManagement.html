@@ -10,6 +10,8 @@
 		<link rel="stylesheet" href="../src/css/projectcss/publicFan.css" media="all">
 		<link rel="stylesheet" href="../src/css/projectcss/style.css" media="all">
 		<link rel="stylesheet" href="../src/css/projectcss/dataCenter.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/dataCenter.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/accountManagement.css" />
 		<style>
 			.layui-input-inline{
 				height: 30px;
@@ -25,6 +27,10 @@
 		  .panel-title{
 		  	padding:8px 0;
 		  }
+		  .layui-fluid{
+		  	 width: 1000px;
+		  }
+		
 	    </style>
 	</head>
 	<body>
@@ -55,53 +61,109 @@
 							      </div>
 							    </div>
 							    
-							      <button class="layui-btn colorGray" data-type="reload">搜索</button>
-							      <button class="layui-btn" data-type="reload">更多搜索</button>
-							      <button class="layui-btn layui-btn-danger" data-type="reload">新增用户</button>
+							      <div class="layui-btn colorGray" data-type="reload">搜索</div>
+							      <div class="layui-btn" data-type="reload">更多搜索</div>
+							      <div class="layui-btn layui-btn-danger addUserBtn" data-type="reload" >新增用户</d>
 							  </div>
 			 	      </div>      
                       
 			 		</form>
 			 		
-			 		 <table class="layui-hide" id="test"></table>
+			 		 <table class="layui-hide" id="test" lay-filter="demo"></table>
 			     </div>
 		     </div>
 		   </div>
 		</div>
+
 	</body>
 	
 	<script type="text/html" id="barDemo">
-	  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-	  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+	  <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
+	  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="status">启用</a>
     </script>
 	
-	
+<script src="../src/js/jquery.js"></script>	
 <script src="../plugins/layui/layui.js"></script>
-<script src="../src/js/jquery.js"></script>
+
 <script>
 
 	layui.use(['form','table' ,'layedit', 'laydate'], function(){
-         var form = layui.form;
-         var table = layui.table;
-          table.render({
-			    elem: '#test'
-			    ,url:'../datas/table.json'
-			    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
-			    ,cols: [[
-			      {field:'id', title: 'ID'}
-			      ,{filed:'account',title:'账户'}
-			      ,{field:'username', title: '用户名'}
-			      ,{field:'sex',title: '性别'}
-			      ,{field:'birthday', title: '生日'}
-			      ,{field:'number',  title: '联系电话'}
-			      ,{field:'unit',  title: '单位'}
-			      ,{field:'department ', title: '所属部门', width: '30%', minWidth: 100} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-			      ,{field:'date', title: '日期'}
-			      ,{field:'character', title: '角色'}
-			      ,{field:'status', title: '状态'}
-			      ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
-			    ]]
+         var form = layui.form,
+             table = layui.table,
+         	 layer = layui.layer,
+         	 $ = layui.jquery;
+        
+        //点击新增按钮
+        
+        $('.addUserBtn').on('click',function(){
+        	console.log(111)
+			layer.open({
+			  type: 2,
+			  title : ['新增用户信息'],
+			  area: ['505px', '515px'], //宽高
+			 content: 'addUser.html'
+			});
+		})
+		
+	
+       table.render({
+		    elem: '#test'
+		    ,url:'../datas/table.json'
+		    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+		    ,cols: [[
+		      {field:'id', title: 'ID'}
+		      ,{filed:'account',title:'账户'}
+		      ,{field:'username', title: '用户名'}
+		      ,{field:'sex',title: '性别'}
+		      ,{field:'birthday', title: '生日'}
+		      ,{field:'number',  title: '联系电话'}
+		      ,{field:'unit',  title: '单位'}
+		      ,{field:'department', title: '所属部门', width: '30%', minWidth: 100} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+		      ,{field:'date', title: '日期'}
+		      ,{field:'character', title: '角色'}
+		      ,{field:'status', title: '状态'}
+		      ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+		    ]]
+		    ,page: true
         });
+        
+       	//点击修改按钮时
+       var revise = function (){
+           layer.open({
+			  type: 2,
+			  title : ['修改用户信息'],
+			  area: ['505px', '515px'], //宽高
+			 content: 'resiveUser.html'
+			});	
+        }
+         
+ table.on('tool(demo)', function(obj){
+      var data = obj.data;
+      if(obj.event === 'status'){
+        layer.confirm('你要停用该用户吗？', function(index){
+//        obj.html("启用");
+          layer.close(index);
+        });
+      } else if(obj.event === 'edit'){
+      	 layer.open({
+			  type: 2,
+			  title : ['修改用户信息'],
+			  area: ['505px', '515px'], //宽高
+			 content: 'resiveUser.html'
+			});	
+      	
+        layer.alert('编辑行：（假数据）<br>'+ JSON.stringify(data))
+      }
+    });     
+         
+         
+         
+         
+         
+         
+         
+         
+        
 	})
 	
 	

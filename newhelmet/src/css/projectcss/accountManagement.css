@@ -1,0 +1,18 @@
+.addUser{
+	width:505px;
+	height: 515px;
+	margin: 0 auto;
+}
+.labelText{
+	padding: 0;
+}
+.labelText:before{
+	content:"*";
+	display: inline-block;
+	color: #FF0000;
+	width:10px ;
+	height:10px ;
+}
+.pullDown{
+	padding: 0px 15px;
+}
