@@ -186,8 +186,8 @@
 	color:#fff;
 }
 .cover_control{
-	width: 80px;
-	height: 50px;
+	width: 40px;
+	height: 30px;
 	position: absolute;
 	bottom:0;
 	right: 0;
@@ -281,18 +281,54 @@
 	background: #33ABA0;
 }
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+/*列表添加*/
+.videoInfoTitle:hover{
+	color:#33ABA0;
+	text-decoration: underline;
+}	
+.mediaList ul li .mediaImg i.hasdu{
+	border-color: #e4393c;
+	background: #e4393c;
+}
+.fa{cursor: pointer;}
+.change-group{
+	overflow: hidden;
+}	
+.change-group label{
+	float: left;
+	margin-right: 15px;
+	margin-top: 5px;
+	width: 80px;
+	text-align: right;
+}
+.change-wrap{
+	float: left;
+	width: 230px;
+	border: 1px solid #666;
+	height: 30px;
+	line-height: 30px;
+	box-sizing: border-box;
+	padding: 0 15px;
+	overflow: hidden;
+}
+.change-wrap input{
+	width: 100%;
+	height: 100%;
+	border: 0;
+}	
+.cover_control{
+	display: none;
+}
+.mediaList ul li:hover .cover_control{
+	display: block;
+}
+.form-select{
+	width: 90px;
+}
+.ctimewrap{
+	margin-top: 80px;
+	margin-bottom: 90px;
+}
 	
 	
 	

@@ -11,9 +11,8 @@
 	margin-left: 35px;
 }
 .playVideo{
-	width: 760px;
+	width: 762px;
 	height: 440px;
-	border: 1px solid #333;
 }
 .videoCount{
 	margin-top: 0;
@@ -38,7 +37,7 @@
 	border-radius: 20px;
 	float: left;
 }
-.unilineInfo p i{
+.unilineInfo div i{
 	display: inline-block;
 	width: 20px;
 	height:20px;
@@ -69,7 +68,7 @@
 .gnpanel{
 	height: 45px;
 	line-height: 45px;
-	background: #333;
+	background: #606060;
 	box-sizing: border-box;
 	padding: 0 15px;
 	width: 762px;
@@ -92,25 +91,23 @@
 	position: relative;
 }
 .rotateBtn{
-	position: absolute;
-	bottom:45px ;
-	left:500px;
+		width:18px;
+		height:18px;
+		position: absolute;
+		bottom:14px ;
+		right:100px;
+		background:url(../../images/icon_rotate.png) no-repeat;
+		background-size: 100% 100%;
 }
 .layui-layer-title{
 	display: none;
 }
-.layui-layer{
-	border-radius: 30px !important;
-}
+
 .layui-input-block {
-   margin-left:0px;
+   margin: 30px 0 0 0px;
 }
-.layui-input-block{
-	margin-top: 30px;
-}
-.layui-layer-setwin{
-	display: none;
-}
+
+
 .layui-textarea{
 	border: none;
 }
@@ -118,6 +115,82 @@
 	text-align: center;
 	margin-top: 40px;
 }
-.Popupvoice{
+.tagList ul li{
+	padding: 0 10px;
+    border: 1px solid #59BBB2;
+    border-radius: 20px;
+    float: left;
+    margin: 20px;
+	
+}
+.tagList{
+	padding:10px;
+	text-align:center;
+}
+.tagBtn{
+	
+	text-align: center;
+}
+.videoTabList{
+	width:500px;
+	height: 310px;
+	border:1px solid #e2e2e2;
+}
+.container{
+	width: 100%;
+	height: 100%;
+}
+#voicewrap{
+	width: 490px;
+	height: 315px;
+	 border: 1px solid #333;
+    border-radius: 20px;
+}
+.videoTag{
+	width: 340px;
+	height: 275px;
+	border: 1px solid #333;
+    border-radius: 20px;
+}
+.tagList ul li{
+	position:relative;
+}
+#labelList .cross{
+	width: 19px;
+	height: 19px;
+	background: url(../../images/icon_close.png) no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	top: -9px ;
+	right:-5px ;
 	display: none;
+}
+.labelList{
+	margin-left:45px;
+	padding: 0;
+}
+.labelList ul li{
+	margin:0 10px;
+}
+.tagType .cross{
+	display: none !important;
+}
+.tagType ul li.active{
+	background: #59BBB2;
+}
+.gnpanel{
+	position: relative;
+}
+.playBtn{
+	width: 29px;
+	height: 31px;
+	background: url(../../images/icon_play.png) no-repeat;
+	background-size: 100% 100%;
+	margin-top:5px;
+}
+#navDetail div.fl{
+	margin-top: 10px;
+}
+#labelList li:hover i{
+	display: block;
 }

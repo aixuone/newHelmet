@@ -12,37 +12,33 @@
 	<link rel="stylesheet" href="../src/css/projectcss/dataCenter.css" >
 	<link rel="stylesheet" href="../src/css/projectcss/dataDetail.css" >
 	<style>
-
+     .layui-body{
+			  overflow-y: hidden !important;
+			 }
 	</style>
 </head>
 <body>
-    <div class="layui-fluid main">
+  <div class="layui-fluid main">
 		<div class="layui-row">
-            <div class="wraper">
+       <div class="wraper">
             		<!--页面头部-->
 				<div class="title"><span>|</span>数据分析>资料中心</div>
             	<div class="videoBox">
             		<!--视频-->
             		<div class="playVideoBox">
 	            		<div class="playVideo" id="playVideo">
-	            		  	<video width="100%" height="100%" poster="../src/images/icon_bg.png" controls  id="myvideo">
-	            		  		<source src="http://smartuat.tygps.com/group1/M00/00/73/wKhvFVv594iASlXIBJm4ouDR4X8180.mp4" type="video/mp4"></source>
+	            		  	<video width="100%" height="100%" controls  id="myvideo">
+	            		  		<source src="http://demo.htmleaf.com/1810/201810171450/ckin.mp4" type="video/mp4"></source>
 	            		  		<source src="http://demo.htmleaf.com/1810/201810171450/ckin.mp4" type="video/ogg"></source>
 	            		  		<source src="http://demo.htmleaf.com/1810/201810171450/ckin.mp4" type="video/webm"></source>
 	            		  		当前浏览器不支持 video直接播放
 	            		  	</video>
-	            			
-	            			<p class="rotateBtn" onclick="rotates()">旋转</p>
 	            		</div>
             		</div>
             	
             		<div class="gnpanel">
-            			<div class="fl marr15 curP">
-							返回视频列表
-            			</div>
-            			<div class="fl curP">
-            				下载原视频
-            			</div>
+            			<p class="playBtn fl"></p>
+									<p class="rotateBtn"></p>
             		</div>
             		<div class="VideoInfoBox">
             			<div class="playVideoTitle">
@@ -50,12 +46,12 @@
             		    </div>
             		    <div class="unilineInfo">
             		    	<div class="videoCount fl">
-								<p class="watchCount fl"><i></i><span>114</span>次</p>
-								<p class="downLoad fl"><i></i><span>22</span>次</p>
-								<p class="fl">用户：<span>张三</span></p>
+												<p class="watchCount fl"><i></i><span>114</span>次</p>
+												<p class="downLoad fl"><i></i><span>22</span>次</p>
+												<p class="fl">用户：<span>张三</span></p>
 	            		    	<p class="fl">客户ID：<span>00000</span></p>
 	            		    	<p class="fl">视频时长：<span>1200秒</span></p>
-							</div>
+						        	</div>
             		    </div>	
             		    
             		    <div class="unilineInfo">
@@ -63,57 +59,88 @@
             		    	<p class="fl">录制时间：<span>00000</span></p>
             		    	<p class="fl">上传时间：<span>1200秒</span></p>
             		    </div>
-            		    <div class="unilineInfo">
-            		    	<p class="fl position">位置：<span>石家庄高新区黄河大道225</span><i class="map" onclick="mapFun()"></i></p>
-            		    	<p class="fl voice" onclick="voiceFun()">语音备注：<span></span><i class=""></i></p>
+            		    <div class="unilineInfo" id="navDetail">
+            		    	<div class="fl position">位置：<span>石家庄高新区黄河大道225</span><i class="map" ></i></div>
+            		    	<div class="fl voice">语音备注：<span></span><i class=""></i></div>
+            		    	<div class="fl tag">
+            		    		<span class="fl">标签</span>
+        		    	       	<div class="tagList labelList" id="labelList">
+										<ul>
+											<li>
+											    <span>二手机上</span>
+												   <i class="close cross"></i>
+											</li>
+											<li>
+												 <span>保养上</span>
+												  <i class="close cross"></i>
+											</li>
+										</ul>
+							    </div>
+            		    	</div>
             		    </div>
-            		    <div class="unilineInfo videotag">
-            		        <span class="fl">标签：</span>
-            		        <p>保养</p> 
-            		        <p>发动机</p>
-            		        <p onclick="tagFun">+</p> 
-            		    </div>
-            			<!--地图-->
-            			<div class="mapwrap hide" id="container"></div>
+            		    
+            		    <div class="videoTabList">
+	            		    	<!--地图-->
+	            		      	<div class="mapwrap hide" id="container"></div>
+            		    	
+            		    	<!--语音备注-->
+            		    	    <div class="hide" id="voicewrap">
+														<form class="layui-form">
+															 <div class="layui-form-item layui-form-text">
+																<div class="layui-input-block">
+																	<textarea placeholder="请输入语音备注" class="layui-textarea"></textarea>
+																</div>
+																	 </div>
+																	 <div class="layui-form-item voiceBtn">
+																<div class="layui-input-block">
+																	<div class="layui-btn" lay-submit="" lay-filter="demo1">保存</div>
+																	<div class="layui-btn layui-btn-danger">取消</div>
+																</div>
+																	</div>
+														</form>
+												</div>
+            		    	<!--标签-->
+												<div class="videoTag hide" id="videoTag">
+												<form class="layui-form">
+														<div class="tagList tagType">
+															<ul>
+																<li data-id="1">
+																	 <span>二手机下1</span>
+																	  <i class="close cross">ဆ</i>
+																</li>
+																<li data-id="2">													
+																	 <span>保养下2下</span>
+																	  <i class="close cross">ဆ</i>
+																</li>
+																<li data-id="3">
+																	<span>二手机下3</span>
+																	 <i class="close cross">ဆ</i>
+																</li>
+																<li data-id="4">
+																	<span>二手机下4</span>
+																	 <i class="close cross">ဆ</i>
+																</li>
+																<li data-id="5">
+																	<span>保养下5</span>
+																	 <i class="close cross">ဆ</i>
+																</li>
+															</ul>
+														</div>
+														 <div class="layui-form-item tagBtn">
+															<div class="layui-input-block">
+																<div class="layui-btn" onclick="subtag()">保存</div>
+																<div class="layui-btn layui-btn-danger">取消</div>
+															</div>
+															</div>
+													</form>
+											</div>
+            		    </div>	
             		</div>
             	</div>
             </div>
 
         </div>
     </div>   
- 
- <!--以下为语音的弹框-->
-    <div class="Popupvoice" id="Popupvoice">
-    	<form class="layui-form">
-    		 <div class="layui-form-item layui-form-text">
-			    <div class="layui-input-block">
-			      <textarea placeholder="请输入语音备注" class="layui-textarea"></textarea>
-			    </div>
-             </div>
-             <div class="layui-form-item voiceBtn">
-			    <div class="layui-input-block">
-			      <button class="layui-btn" lay-submit="" lay-filter="demo1">保存</button>
-			      <button class="layui-btn layui-btn-danger">取消</button>
-			    </div>
-            </div>
-    	</form>
-    </div>
-    
- <!--标签的弹框-->   
- 
- <div class="videoTag" id="videoTag">
- 	<form class="layui-form">
-    	
-    </form>
- 	
- </div>
- 
- 
-    
-    
-    
-    
-    
 <script src="../src/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 <script src="https://webapi.amap.com/maps?v=1.4.8&key=344acf3230f8ac064db3eb9db89d0c8c"></script>
 <script src="../plugins/layui/layui.js"></script>
@@ -167,38 +194,88 @@
 			});
 	}
 	init();
+	
 </script>
     
  <script>
-// 	语音的弹框
- layui.use('layer', function(){
-	   var $ = layui.jquery,
-           layer = layui.layer;
-	//点击语音备注时
-		voiceFun =function(){
-			layer.open({
-			  type: 1,
-			  area: ['484px', '313px'],
-			  shade: 0.4,
-			  content: $('#Popupvoice')
-			});
-		}
-  }); 
- 	
 
-var deg = 0;
-function rotates (){
-	console.log(111)
-    deg += 90;
-	    $('.playVideoBox')[0].style.transform = 'rotate('+deg+'deg)';
-        //$('#playVideo').css("transform","rotate("+deg+"deg)");  //这样写会报错
-console.log(this.deg)
-}
- 	
- 	
- 	
- 	
- 	
+	//每点击一次视频旋转90度
+	var rotate = {
+		deg : 0,
+		fn : function(){
+			this.deg += 90;
+			var myVideo = $("#playVideo");
+			var v = $("#playVideo video");
+			if (this.deg%180==90) {
+			console.log(this.deg,"%180",this.deg%180,"%90",this.deg%90);	
+				v.css({"width":myVideo.height()});	
+			}else{
+				v.css({"width":"760px"});
+			}
+			v.css("transform","rotate("+this.deg+"deg)");		
+		}
+	};
+	$(".rotateBtn").click(function(){rotate.fn()}); 	
+
+
+	//选项卡
+	$("#navDetail").on('click',"div",function(){
+		$(".videoTabList>div").eq($(this).index()).show().siblings().hide();	
+	})
+	var targetList=[];
+	//点击内容选择
+	$(".tagType ul").on("click","li",function(){  
+			var targetid=$(this).data('id');
+			// console.log(55,targetid);
+			var targettext=$(this).children('span').text();
+			if($(this).is('.active')){	
+				$(this).removeClass("active");
+				var objindex
+				$.each(targetList,function(index,val){
+					if(val.id==targetid){
+						objindex=index
+					}
+				})
+				targetList.splice(objindex, 1);
+				console.log(targetList)
+			}else{
+				$(this).addClass("active");
+				var obj={}
+				obj.id=targetid
+				obj.text=targettext
+				//console.log(88,obj)
+				targetList.push(obj);
+				console.log(targetList)
+			}
+			
+	})
+
+
+	//点击标签后的div时
+	$("#labelList ul").on("click","i",function(){
+		$(this).closest("li").remove();
+		$(".tagType ul").append(`<li>
+			${$(this).closest("li").find("span").text()}
+		</li>`
+		)
+	})
+	
+	subtag=function(){
+		
+		//去除里面的
+		$('.tagList ul .active').remove();
+		//拼接到外面
+		var str=''
+		$.each(targetList,function(index,val){
+			str+=`<li data-id="${val.id}">
+				<span>${val.text}</span>
+				 <i class="close cross">ဆ</i>
+			</li>`
+		})
+		$('#labelList ul').append(str);
+		targetList=[]
+	}
+
  	
  </script>   
              
