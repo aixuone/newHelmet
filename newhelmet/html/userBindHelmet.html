@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>绑定头盔</title>
+		<link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/publicFan.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/style.css" media="all">
+        <link rel="stylesheet" href="../src/css/projectcss/bindHelmet.css" media="all">
+	</head>
+	<body>
+		
+			<div class="layui-fluid main">
+		       <div class="layui-row">
+			      <div class="wraper">
+			      	 	<!--页面头部-->
+				        <div class="title"><span></span></div>
+			      	    <div class="container">
+					    <div class="section">
+					        <!--   Icon Section   -->
+					        <div class="row">
+					            <div class="col s12">
+					                <h4 id="qrCodeModalTitle">用户账号绑定头盔</h4>
+					                <div class="userInfoList">
+					                	<p>1、头盔扫描下方二维码，解析得到网址后，通过post方式访问该网址，请求header中需传入appKey,signature,imei参数；</p>
+					                    <p>2、后台接收到头盔端请求，将header里的imei和该二维码建立关联，并反馈给头盔对应用户账号绑定成功；</p>
+					                    <p>3、头盔app收到反馈后，后续请求后台接口时只需在header里传入imei给后台，后台会自动匹配对应的用户账号；</p>
+					                    <p>4、如果当前用户账号对应头盔要解除绑定，则用这个头盔扫描下面二维码可实现解绑；</p>
+					                    <p>5、一个用户账号只能绑定一个头盔；</p>	
+					                </div>
+					                <div class="row center" id="qrForm">
+					                    <div class="input-field col s12 m4 l4" id="qrCode">
+					                        <img id='qrCodeImage' src="../src/images/icon_ewm.png" class=""/>
+					                    </div>
+					                    <div class="col s4">
+					                        <br>
+					                        <span>当前账号已绑定头盔:</span> 2300031
+					                    </div>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+			      </div>	
+			    </div>  	
+			</div>      	
+			
+		
+	</body>
+</html>

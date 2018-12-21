@@ -35,7 +35,7 @@
 			    	登录账号
 			    </label>
 			    <div class="layui-input-block">
-			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="1-9位数字和字母" class="layui-input">
 			    </div>
  			 </div>
 			<div class="layui-form-item">
@@ -108,9 +108,9 @@
 				      <label class="layui-form-label labelText pullDown" >角色</label>
 				      <div class="layui-input-inline">
 				        <select name="modules" lay-verify="required" lay-search="">
-				          <option value="">角色1</option>
-				          <option value="1">角色2</option>
-				          <option value="2">角色3</option>
+				          <option value="">超级管理员</option>
+				          <option value="1">管理员</option>
+				          <option value="2">普通管理员</option>
 				        </select>
 				      </div>
    				</div>
@@ -130,6 +130,25 @@
              table = layui.table,
          	 layer = layui.layer,
          	 $ = layui.jquery;
+         	 
+         	 
+        //自定义验证规则
+		  form.verify({
+		    title: function(value){
+		      if(value.length < 5){
+		        return '标题至少得5个字符啊';
+		      }
+		    }
+		    ,pass: [
+		      /^[\S]{6,12}$/
+		      ,'密码必须6到12位，且不能出现空格'
+		    ]
+		    ,content: function(value){
+		      layedit.sync(editIndex);
+		    }
+		  }); 	 
+         	 
+         	 
          	 
      })    	 
          	 

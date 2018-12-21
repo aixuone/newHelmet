@@ -1,0 +1,45 @@
+.panel-body{
+	margin:30px 0 0 100px;
+}
+.panel-body p{
+	line-height: 36px;
+
+}
+.panel-body p i{
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+}
+.panel-body .layui-btn{
+	border-radius: 4px;
+}
+.demo-button{
+	margin: 20px 0;
+	
+}
+.demo-button span{
+	display: inline-block;
+	width:80px ;
+	height: 28px;
+	text-align: right;
+}
+.demo-button input {
+	height: 28px;
+	border:1px solid #c2c2c2;
+	text-indent: 10px;
+}
+.demo-button a{
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+	line-height: 30px;
+	background:#33ABA0;
+	color: #fff;
+	float: left;
+	text-align:center;
+	border-radius: 4px;
+}
+.demo-button a:nth-child(2){
+	margin-left: 20px;
+	background:#FC5E1F;
+}

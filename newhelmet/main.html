@@ -31,7 +31,7 @@
 				  <!--图标展示位置-->
 				<div class="iconShowCon">
 					<div class="setImgBox ">
-						<div class="setImg fr">
+						<div class="setImg fr" id="setImg">
 							<img src="src/images/icon_set.png" title="将不需要的功能图标拖到这里试试吧"  class=""/>
 						</div>
 					</div>
@@ -121,6 +121,13 @@
                 });
             });
 			
+			$("#setImg").click(function(){
+				if($(".iconShowRight").hasClass("r0")){
+					$(".iconShowRight").removeClass("r0")
+				}else{
+					$(".iconShowRight").addClass("r0")
+				}
+			})
 				//初始化插件
 		$(".draglist").dragsort({
 			dragSelector: "li",

@@ -35,7 +35,7 @@
 			    	登录账号
 			    </label>
 			    <div class="layui-input-block">
-			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+			      <input type="text"  name="account" lay-verify=""  placeholder="请输入" class="layui-input account">
 			    </div>
  			 </div>
 			<div class="layui-form-item">
@@ -43,7 +43,7 @@
 			                    用户姓名
 			    </label>
 			    <div class="layui-input-block">
-			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+			      <input type="text" name="username" lay-verify="" autocomplete="off" placeholder="请输入" class="layui-input username">
 			    </div>
  			 </div>
  			 <div class="layui-form-item">
@@ -51,7 +51,7 @@
 			               新密码
 			    </label>
 			    <div class="layui-input-block">
-			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+			      <input type="text" name="newpwd" lay-verify="" autocomplete="off" placeholder="请输入" class="layui-input newpwd">
 			    </div>
  			 </div>
  			 
@@ -60,7 +60,7 @@
 			                  确认密码
 			    </label>
 			    <div class="layui-input-block">
-			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+			      <input type="text" name="confirmpwd" lay-verify="" autocomplete="off" placeholder="请输入" class="layui-input confirmpwd">
 			    </div>
  			 </div>
 		    <div class="layui-form-item">
@@ -68,7 +68,7 @@
 			    	生日
 			    </label>
 			    <div class="layui-input-block">
-			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入生日" class="layui-input">
+			      <input type="text" name="birthday" lay-verify="" autocomplete="off" placeholder="请输入生日" class="layui-input birthday">
 			    </div>
   			</div>
   			<!--电话-->
@@ -77,20 +77,22 @@
 			    	电话
 			    </label>
 			    <div class="layui-input-block">
-			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入电话" class="layui-input">
+			      <input type="text" name="number" lay-verify="" autocomplete="off" placeholder="请输入电话" class="layui-input number">
 			    </div>
   			</div> 
   			
+
   			 <div class="layui-form-item">
 			     <div class="layui-inline">
 				      <label class="layui-form-label labelText pullDown">
 				      	所属单位
 				      </label>
-				      <div class="layui-input-inline">
-				        <select name="modules" lay-verify="required" lay-search="">
-				          <option value="">所属单位1</option>
-				          <option value="1">所属单位2</option>
-				          <option value="2">所属单位3</option>
+				      <div class="layui-input-inline" lay-filter="unit">
+				        <select name="unit" class="unit"   lay-verify="" lay-search="">
+				          <option value="">请选择</option>
+				          <option value="1">所属单位1</option>
+				          <option value="2">所属单位2</option>
+				          <option value="3">所属单位3</option>
 				        </select>
 				      </div>
    				</div>
@@ -102,8 +104,9 @@
 				      	所属部门
 				      </label>
 				      <div class="layui-input-inline">
-				        <select name="modules" lay-verify="required" lay-search="">
-				          <option value="">所属部门1</option>
+				        <select name="modules" class="department" lay-verify="" lay-search="">
+				        	<option value="">请选择</option>
+				          <option value="0">所属部门1</option>
 				          <option value="1">所属部门2</option>
 				          <option value="2">所属部门13</option>
 				        </select>
@@ -115,8 +118,9 @@
 			     <div class="layui-inline">
 				      <label class="layui-form-label labelText pullDown" >角色</label>
 				      <div class="layui-input-inline">
-				        <select name="modules" lay-verify="required" lay-search="">
-				          <option value="">角色1</option>
+				        <select name="modules" class="character" lay-verify="" lay-search="">
+				        	<option value="">请选择</option>
+				          <option value="0">角色1</option>
 				          <option value="1">角色2</option>
 				          <option value="2">角色3</option>
 				        </select>
@@ -135,14 +139,13 @@
 <script>
 	layui.use(['form','table' ,'layedit', 'laydate'], function(){
          var form = layui.form,
-             table = layui.table,
+            table = layui.table,
          	 layer = layui.layer,
          	 $ = layui.jquery;
-         	 
+       
      })    	 
          	 
-	
-	
+			
 	
 </script>	
 	

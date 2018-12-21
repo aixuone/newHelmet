@@ -1,0 +1,21 @@
+#qrCodeModalTitle{
+	line-height: 44px;
+	font-size: 16px;
+}
+.userInfoList p{
+	line-height: 44px;
+	font-size: 15px;
+}
+#qrCode{
+	width: 250px;
+	height:250px ;
+	/*margin: 0 auto;*/
+	margin: 30px auto 0 auto;
+}
+#qrCode img{
+	width: 100%;
+	height: 100%;
+}
+#qrForm .s4{
+	text-align: center;
+}

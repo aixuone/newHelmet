@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>ger</title>
+		<link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/publicFan.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/style.css" media="all">
+		<link rel="stylesheet" href="../src/css/projectcss/personCenter.css" media="all">
+		<script src=></script>
+		<style>
+			.main {
+			   margin-top: 25px;
+			}
+							
+			.main .layui-row {
+					color:#23262e;
+					font-weight: normal;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div class="layui-fluid main">
+			<div class="layui-row">
+				<div class="wraper">
+						
+				    <div class="title"><span>|</span>个人中心</div>
+				    
+				    
+				    <div>
+
+			 </div>
+		</div>-->
+		
+	    <!--修改信息-->
+		    <div class="layui-fluid main">
+		        <div class="layui-row" id="infoPerson">
+		           <div class="title"><span>|</span>个人中心</div>
+		           
+		             <div class="panel-headline" id="personOperateDiv">
+		                <div class="panel-body">
+		                 
+		                        <p><i>姓名：</i>姓名：<span>董小花</span></p>
+		                        <p><i>手机号：</i><span>13048794389</span></p>
+		                        <p><i>账号：</i><span>dongxiaohua</span></p>
+		                        <p><i>所属单位：</i><span>田一科技</span></p>
+		                        <p><i>所属部门：</i><span>田一科技</span></p>
+		                        <p><i>角色：</i><span>超级管理员，管理员</span></p>
+		                        <p><i>性别：</i><span>女</span></p>
+		                </div>
+		                <!--按钮--> 
+		                <div class="panel-body" style="margin-left: 150px;" id="revise">
+                              <div class="layui-btn">修改资料</div>
+                              <div class="layui-btn">修改密码</div>
+                        </div>
+           			 </div>
+		        </div>
+		
+		
+		
+		
+		
+		<div class="resiveBox hide">
+			   <!-- 修改信息 start  -->
+		    <div class="container-fluid"  id="">
+		    	 <div class="title" style="margin-top:50px;"><span>|</span>修改信息</div>
+		    	 <div class="">
+	                  <div class="panel-body" id="pwdForm">
+	                  	 <div class="demo-button">
+		                      <span>姓名：</span>  <input type="text"  class="form-control" data-length="15" maxlength="15" placeholder="请输入旧密码">
+		                 </div>
+		                  <div class="demo-button">
+		                      <span>性别：</span> 
+		                      <input type="radio" name="sex"  class="form-control" value="男" >
+		                      <input type="radio" name="sex"  class="form-control" value="女" >
+		                 </div>
+		                 <div class="demo-button">
+		                      <span>生日：</span>  <input type="text" />
+		                 </div>
+		                  <div class="demo-button">
+		                      <span>电话：</span>  <input type="text" />
+		                 </div>
+		                 
+		                <div class="demo-button">
+		                	<a>保存</a>
+		                	<a>取消</a>
+		                	
+		                </div>
+	                 </div>
+		         </div>
+		    </div>
+			
+			   <!--修改密码-->
+	        <div class="container-fluid hidden" >
+	            
+	            <div class="title" style="margin-top:50px;"><span>|</span>修改密码</div>
+	            <div class="">
+	                <div class="panel-body" id="pwdForm">
+	                    <p class="demo-button">
+	                    	<span>旧密码：</span>
+	                        <input type="password" id="userpwd_password1" class="form-control" data-length="15" maxlength="15" placeholder="请输入旧密码">
+	                    </p>
+	                    <p class="demo-button">
+	                    	<span>新密码：</span>
+	                        <input type="password" id="userpwd_password2" class="form-control" data-length="15" maxlength="15" placeholder="请输入新密码">
+	                    </p>
+	                    <p class="demo-button">
+	                    	<span>确认密码：</span>
+	                        <input type="password" id="userpwd_password3" class="form-control" data-length="15" maxlength="15" placeholder="请再次输入新密码">
+	                    </p>
+	                    <p class="demo-button">
+	                        <a href="javascript:void(0)" class="btn btn-primary" id="userpwd-button">确认修改</a>
+	                        <a href="javascript:cls('chgPwdModal')" class="btn btn-default cls-cancel">取消</a>
+	                    </p>
+	                </div>
+	            </div>
+	
+	       </div>
+			
+			
+			
+		</div>		        
+    </div>
+	</body>
+	<script src="../plugins/layui/layui.js"></script>
+    <script src="../src/js/jquery.js"></script>
+	<script>
+	layui.use(['form', 'layedit', 'laydate', 'jquery','laypage'], function () {
+		var form = layui.form,
+			layer = layui.layer,
+			layedit = layui.layedit,
+			laydate = layui.laydate,
+			$ = layui.jquery;
+			
+			
+		$("#revise").on("click","div",function(){
+			console.log($(this).index())
+			$(".resiveBox").show();
+			$(".resiveBox>div").eq($(this).index()).show().siblings("div").hide();
+			
+			
+			
+		})
+			
+			
+			
+			
+			
+	})	
+		
+		
+		
+		
+	</script>
+	
+	
+</html>

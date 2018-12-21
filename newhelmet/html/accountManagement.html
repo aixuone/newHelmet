@@ -30,7 +30,6 @@
 		  .layui-fluid{
 		  	 width: 1000px;
 		  }
-		
 	    </style>
 	</head>
 	<body>
@@ -43,30 +42,55 @@
 			 		<form class="layui-form" action="">
 			 			<div class="panel-title">
 							  <div class="layui-form-item">
-							    <div class="layui-inline">
-							      <label class="layui-form-label">搜索选择框</label>
-							      <div class="layui-input-inline">
-							        <select name="modules" lay-verify="required" lay-search="">
-							          <option value="">田一科技</option>
-							          <option value="1">天远</option>
-							          <option value="2">天远2/option>
-							        </select>
-							      </div>
-							    </div>
-							    
-						       <div class="layui-inline">
-							      <label class="layui-form-label">用户名</label>
-							      <div class="layui-input-inline">
-							        <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
-							      </div>
-							    </div>
-							    
+								    <div class="layui-inline">
+								      <label class="layui-form-label">搜索选择框</label>
+								      <div class="layui-input-inline">
+								        <select name="modules" lay-verify="required" lay-search="">
+								          <option value="">田一科技</option>
+								          <option value="1">天远</option>
+								          <option value="2">天远2/option>
+								        </select>
+								      </div>
+								    </div>
+								    
+							       <div class="layui-inline">
+								      <label class="layui-form-label">用户名</label>
+								      <div class="layui-input-inline">
+								        <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+								      </div>
+								    </div>
+								 
 							      <div class="layui-btn colorGray" data-type="reload">搜索</div>
-							      <div class="layui-btn" data-type="reload">更多搜索</div>
-							      <div class="layui-btn layui-btn-danger addUserBtn" data-type="reload" >新增用户</d>
-							  </div>
-			 	      </div>      
+							      <div class="layui-btn" data-type="reload" onclick="moreSearch()">更多搜索</div>
+							      <div class="layui-btn layui-btn-danger addUserBtn" data-type="reload" >新增用户</div>
+			 	             </div>      
                       
+                      
+                        <!--注册时间-->
+                   
+						  <div class="layui-form-item hide" id="moreSearchBox">
+							  	<label class="layui-form-label">注册时间</label>
+							    <div class="layui-inline">
+							      <input type="text" class="layui-input test-item" placeholder="yyyy-MM-dd">
+							    </div>
+							    <div class="layui-inline">
+							      <input type="text" class="layui-input test-item" placeholder="yyyy-MM-dd">
+							    </div>
+							    
+							    <div class="layui-inline">
+								      <label class="layui-form-label">所属部门</label>
+								      <div class="layui-input-inline">
+								        <select name="modules" lay-verify="required" lay-search="">
+								          <option value="">田一科技</option>
+								          <option value="1">天远</option>
+								          <option value="2">天远2/option>
+								        </select>
+								      </div>
+							    </div>
+						  </div>
+						  
+						  
+					  
 			 		</form>
 			 		
 			 		 <table class="layui-hide" id="test" lay-filter="demo"></table>
@@ -74,13 +98,19 @@
 		     </div>
 		   </div>
 		</div>
+		
+		
 
 	</body>
 	
 	<script type="text/html" id="barDemo">
-	  <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
-	  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="status">启用</a>
-    </script>
+		<a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
+		{{# if(d.status =='正常'){ }}
+	    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="status">停用</a>
+	    {{# }else if(d.status =='停用'||d.status =='禁用'){ }}
+	    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="status">启用</a>
+	    {{# } }}
+   </script>
 	
 <script src="../src/js/jquery.js"></script>	
 <script src="../plugins/layui/layui.js"></script>
@@ -92,18 +122,18 @@
              table = layui.table,
          	 layer = layui.layer,
          	 $ = layui.jquery;
-        
+            var laydate = layui.laydate;
         //点击新增按钮
         
         $('.addUserBtn').on('click',function(){
         	console.log(111)
-			layer.open({
-			  type: 2,
-			  title : ['新增用户信息'],
-			  area: ['505px', '515px'], //宽高
-			 content: 'addUser.html'
-			});
-		})
+					layer.open({
+						type: 2,
+						title : ['新增用户信息'],
+						area: ['505px', '515px'], //宽高
+					 content: 'addUser.html'
+					});
+				})
 		
 	
        table.render({
@@ -135,8 +165,7 @@
 			  area: ['505px', '515px'], //宽高
 			 content: 'resiveUser.html'
 			});	
-        }
-         
+        } 
  table.on('tool(demo)', function(obj){
       var data = obj.data;
       if(obj.event === 'status'){
@@ -146,27 +175,41 @@
         });
       } else if(obj.event === 'edit'){
       	 layer.open({
-			  type: 2,
-			  title : ['修改用户信息'],
-			  area: ['505px', '515px'], //宽高
-			 content: 'resiveUser.html'
-			});	
+				type: 2,
+				title : ['修改用户信息'],
+				area: ['505px', '515px'], //宽高
+			 content: 'resiveUser.html',
+			 success: function (layero, index) {
+                    // 获取子页面的iframe
+                    var body = layui.layer.getChildFrame('body', index);
+                    var iframeWindow = layero.find('iframe')[0].contentWindow;
+					//var rowData=JSON.stringify(data);unit
+					body.find(".account").val(data.account); //输入框
+					body.find(".unit").val('3'); //下拉选
+                    //form.render();
+                     iframeWindow.layui.form.render()
+                }
+
+		});	
       	
-        layer.alert('编辑行：（假数据）<br>'+ JSON.stringify(data))
+        //layer.alert('编辑行：（假数据）<br>'+ JSON.stringify(data))
       }
     });     
          
-         
-         
-         
-         
-         
-         
-         
-        
-	})
+    //同时绑定多个
+  lay('.test-item').each(function(){
+    laydate.render({
+      elem: this
+      ,trigger: 'click'
+    });
+  });      
+})
 	
+var moreSearch= function(){
+	$("#moreSearchBox").removeClass("hide");
 	
+}
+     	
 	
 	
 </script>	
