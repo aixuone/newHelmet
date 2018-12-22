@@ -108,7 +108,7 @@
 		{{# if(d.status =='正常'){ }}
 	    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="status">停用</a>
 	    {{# }else if(d.status =='停用'||d.status =='禁用'){ }}
-	    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="status">启用</a>
+	    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="start">启用</a>
 	    {{# } }}
    </script>
 	
@@ -173,6 +173,10 @@
 //        obj.html("启用");
           layer.close(index);
         });
+      }else if(obj.event =='start'){
+      	layer.confirm('你要启用该用户吗？', function(index){
+          layer.close(index);
+        });
       } else if(obj.event === 'edit'){
       	 layer.open({
 				type: 2,
@@ -180,11 +184,21 @@
 				area: ['505px', '515px'], //宽高
 			 content: 'resiveUser.html',
 			 success: function (layero, index) {
+			 	console.log(66,layero, index)
+			 	console.log(77,data)
                     // 获取子页面的iframe
                     var body = layui.layer.getChildFrame('body', index);
                     var iframeWindow = layero.find('iframe')[0].contentWindow;
 					//var rowData=JSON.stringify(data);unit
 					body.find(".account").val(data.account); //输入框
+					body.find(".username").val(data.username);
+//					body.find(".newpwd").val(data.username);
+					body.find(".birthday").val(data.username);
+					body.find(".number").val(data.number);
+					body.find(".department").val(data.department);
+					body.find(".character").val(data.character);
+					
+				
 					body.find(".unit").val('3'); //下拉选
                     //form.render();
                      iframeWindow.layui.form.render()

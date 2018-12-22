@@ -35,7 +35,7 @@
 			    	登录账号
 			    </label>
 			    <div class="layui-input-block">
-			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="1-9位数字和字母" class="layui-input">
+			      <input type="text" name="" lay-verify="required|account" autocomplete="off" placeholder="1-9位数字和字母" class="layui-input">
 			    </div>
  			 </div>
 			<div class="layui-form-item">
@@ -43,7 +43,7 @@
 			                    用户姓名
 			    </label>
 			    <div class="layui-input-block">
-			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+			      <input type="text" name="username" lay-verify="required" maxlength="6" autocomplete="off" placeholder="请输入标题" class="layui-input">
 			    </div>
  			 </div>
 			 <div class="layui-form-item">
@@ -60,7 +60,7 @@
 			    	生日
 			    </label>
 			    <div class="layui-input-block">
-			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入生日" class="layui-input">
+			      <input type="text" name="birthday" id="date" lay-verify="date" autocomplete="off" placeholder="请输入生日" class="layui-input">
 			    </div>
   			</div>
   			<!--电话-->
@@ -69,7 +69,7 @@
 			    	电话
 			    </label>
 			    <div class="layui-input-block">
-			      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入电话" class="layui-input">
+			      <input type="text" name="number" lay-verify="required|phone" autocomplete="off" placeholder="请输入电话" class="layui-input">
 			    </div>
   			</div> 
   			
@@ -79,7 +79,7 @@
 				      	所属单位
 				      </label>
 				      <div class="layui-input-inline">
-				        <select name="modules" lay-verify="required" lay-search="">
+				        <select name="unit" lay-verify="required" lay-search="">
 				          <option value="">所属单位1</option>
 				          <option value="1">所属单位2</option>
 				          <option value="2">所属单位3</option>
@@ -94,7 +94,7 @@
 				      	所属部门
 				      </label>
 				      <div class="layui-input-inline">
-				        <select name="modules" lay-verify="required" lay-search="">
+				        <select name="department" lay-verify="required" lay-search="">
 				          <option value="">所属部门1</option>
 				          <option value="1">所属部门2</option>
 				          <option value="2">所属部门13</option>
@@ -107,7 +107,7 @@
 			     <div class="layui-inline">
 				      <label class="layui-form-label labelText pullDown" >角色</label>
 				      <div class="layui-input-inline">
-				        <select name="modules" lay-verify="required" lay-search="">
+				        <select name="character" lay-verify="required" lay-search="">
 				          <option value="">超级管理员</option>
 				          <option value="1">管理员</option>
 				          <option value="2">普通管理员</option>
@@ -116,7 +116,7 @@
    				</div>
   			</div> 
   			<div class="layui-form-item" style="text-align:center;">
-  				  <div class="layui-btn">保存</div>
+  				  <div class="layui-btn" lay-submit=""  lay-filter="formdata">保存</div>
                   <div class="layui-btn layui-btn-danger">取消</div>
   			</div>
 		</form>
@@ -129,16 +129,27 @@
          var form = layui.form,
              table = layui.table,
          	 layer = layui.layer,
+         	 laydate = layui.laydate,
+         	 layedit = layui.layedit
          	 $ = layui.jquery;
          	 
-         	 
+         //日期
+		  laydate.render({
+		    elem: '#date'
+		  });
+         
+         
         //自定义验证规则
 		  form.verify({
-		    title: function(value){
+		    value: function(value){
 		      if(value.length < 5){
 		        return '标题至少得5个字符啊';
 		      }
 		    }
+		    ,account: [
+		    	/^[A-Za-z0-9]{1,9}$/
+		    	,'账号为1-9位数字或字母'
+		    ]
 		    ,pass: [
 		      /^[\S]{6,12}$/
 		      ,'密码必须6到12位，且不能出现空格'
@@ -147,7 +158,13 @@
 		      layedit.sync(editIndex);
 		    }
 		  }); 	 
-         	 
+         //监听提交
+         form.on('submit(formdata)', function(data){
+		    layer.alert(JSON.stringify(data.field), {
+		      title: '最终的提交信息'
+		    })
+		    
+		  });
          	 
          	 
      })    	 

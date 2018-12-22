@@ -132,9 +132,9 @@
 	text-align: center;
 }
 .videoTabList{
-	width:500px;
+	/*width:500px;
 	height: 310px;
-	border:1px solid #e2e2e2;
+	border:1px solid #e2e2e2;*/
 }
 .container{
 	width: 100%;

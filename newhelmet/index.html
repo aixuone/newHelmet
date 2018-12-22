@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -25,6 +24,71 @@
 				line-height: 25px;
 				margin:10px 0;
 			}
+			ol li a{
+				background-color: rgba(0,0,0,1)!important;
+			}
+				.three_this{
+					background-color: #009688!important;
+				}
+			.layui-layer-tips{
+				display: none !important;
+			}
+			
+			.layui-nav .layui-nav-item .layui-nav-more {
+    content: '';
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    position: absolute;
+    top: 50%;
+    right: 3px;
+    margin-top: -3px;
+    border-width:0px;
+    border-top-color: rgba(255,255,255,.7);
+		width: 12px;
+		height: 12px;
+	  background:url(src/images/icon_left.png) no-repeat ;
+
+		background-size: 100% 100%;
+}
+
+			.layui-nav  .layui-nav-itemed>a .layui-nav-more{
+			
+				background:url(src/images/icon_bottom.png) no-repeat ;
+
+				background-size: 100% 100%;
+				
+			}
+			.layui-nav  .layui-nav-itemed #menu_three.active  .layui-nav-more{
+				background:url(src/images/icon_bottom.png) no-repeat ;
+
+				background-size: 100% 100%;
+			}
+			.comLeft{
+				width: 20px;
+				height: 20px;
+				vertical-align: middle;
+			}
+			.user_con{
+			
+				background: url(src/images/left_user.png);
+				background-size: 100% 100%;
+			
+			}
+			.facility{
+				background: url(src/images/icon_sb.png);
+				background-size: 100% 100%;
+			}
+			.datafx{
+				background: url(src/images/icon_data.png);
+				background-size: 100% 100%;
+			}
+			.authorityMan{
+				background: url(src/images/icon_qx.png);
+				background-size: 100% 100%;
+			}
+			
 		</style>
 </head>
 
@@ -43,19 +107,19 @@
                     </a>
                 </li>
 				<li class="layui-nav-item">
-					<a kit-target data-options="{url:'main.html',title:'个人中心',id:'21'}">
-					    <img src="./src/images/icon_top.png" class="layui-nav-img"> 
-				    </a>
+					<a kit-target data-options="{url:'main.html',title:'首页',id:'0'}">
+							<img src="./src/images/icon_top.png" class="layui-nav-img"> 
+						</a>
 				</li>
 				<li class="layui-nav-item">
 					<a kit-target data-options="{url:'html/userBindHelmet.html' ,title:'二维码',id:'22'}">
-					     <img src="./src/images/icon_ewm.png" class="layui-nav-img"> 
-				    </a>
+							 <img src="./src/images/icon_ewm.png" class="layui-nav-img"> 
+						</a>
 				</li>
 				<li class="layui-nav-item">
-					<a kit-target data-options="{url:'html/loginout.html' ,title:'退出登录',id:'23'}" >
-					     <img src="./src/images/icon_logout.png" class="layui-nav-img"> 
-				    </a>
+					<a onclick="logoutFun()" >
+						<img src="./src/images/icon_logout.png" class="layui-nav-img"> 
+					</a>
 				</li>
                 <!--<li class="layui-nav-item"><a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a></li>-->
             </ul>
@@ -69,22 +133,20 @@
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
 						<li class="layui-nav-item">
-							<a class="" href="javascript:;"><i class="fa fa-user" aria-hidden="true"></i><span> 用户管理</span></a>
+							<a class="" href="javascript:;"><i class="fa comLeft user_con" aria-hidden="true"></i><span> 用户管理</span></a>
 							<dl class="layui-nav-child ">
 								<dd>
-									<a href="javascript:;" kit-target data-options="{url:'html/accountManagement.html',title:'账户管理',id:'1'}">
+									<a href="javascript:;" id="menu_three" kit-target data-options="{url:'html/accountManagement.html',title:'账户管理',id:'1'}">
 										<span> 账户管理</span>		
 									</a>
-									<dl class="layui-nav-child">
-										<dd>
-											<a kit-target data-options="{url:'html/userBindHelmet.html' ,title:'二维码',id:'22'}"></a>
-											<span>二维码</span>
-										</dd>
-										<dd>
-											<a kit-target data-options="{url:'main.html',title:'个人中心',id:'21'}"></a>
-											<span>个人中心</span>
-										</dd>	
-									</dl>
+									<ol class="layui-nav-child" style="display: none;" >
+										 <li>
+											 <a href="javascript:;" kit-target data-options="{url:'html/userBindHelmet.html' ,title:'二维码',id:'22'}">二维码</a>
+											</li>
+										 <li>
+											 <a href="javascript:;" kit-target data-options="{url:'html/personCenter.html',title:'个人中心',id:'21'}">个人中心</a>
+											</li>
+									</ol>
 								</dd>
 								<dd>
 									<a href="javascript:;" kit-target data-options="{url:'danwei.html',title:'单位管理',id:'2'}">
@@ -99,7 +161,7 @@
 							</dl>
 						</li>
 						<li class="layui-nav-item">
-							<a class="" href="javascript:;"><i class="fa fa-user" aria-hidden="true"></i><span> 设备管理</span></a>
+							<a class="" href="javascript:;"><i class="fa comLeft facility" aria-hidden="true"></i><span> 设备管理</span></a>
 							<dl class="layui-nav-child">
 								<dd>
 									<a href="javascript:;" kit-target data-options="{url:'list.html',title:'设备台账',id:'4'}">
@@ -124,7 +186,7 @@
 							</dl>
 						</li>
 						<li class="layui-nav-item">
-							<a class="" href="javascript:;"><i class="fa fa-user" aria-hidden="true"></i><span> 数据分析</span></a>
+							<a class="" href="javascript:;"><i class="fa comLeft datafx" aria-hidden="true"></i><span> 数据分析</span></a>
 							<dl class="layui-nav-child ">
 								<dd>
                                     <a href="javascript:;" kit-target data-options="{url:'html/dataCenter.html',title:'资料中心',id:'8'}">
@@ -139,7 +201,7 @@
 							</dl>
 						</li>
 						<li class="layui-nav-item">
-							<a class="" href="javascript:;"><i class="fa fa-user" aria-hidden="true"></i><span> 权限管理</span></a>
+							<a class="" href="javascript:;"><i class="fa comLeft authorityMan" aria-hidden="true"></i><span> 权限管理</span></a>
 							<dl class="layui-nav-child ">
 								<dd>
 									<a href="javascript:;" kit-target data-options="{url:'list.html',title:'角色管理',id:'9'}">
@@ -168,10 +230,14 @@
             <a href="index.html">我是底部</a>  license
         </div>
     </div>
+    
+
     <script type="text/javascript">
         var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
         document.write(unescape("%3Cspan id='cnzz_stat_icon_1264021086'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1264021086%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
     </script>
+    
+    <script src="./plugins/layui/layui.js"></script>
     <script src="plugins/layui/layui.js"></script>
     <script>
 		//页面上加载jquery   很重要
@@ -214,6 +280,8 @@
                 var skin = $that.children('a').data('skin');
                 switchSkin(skin);
             });
+						
+						
             var setSkin = function(value) {
                     layui.data('kit_skin', {
                         key: 'skin',
@@ -232,9 +300,41 @@
                     var skin = getSkinName();
                     switchSkin(skin === undefined ? 'default' : skin);
                 }();
-                
-                
-        });
+               
+				//三级目录
+				 $("#menu_three").on("click",function(){
+					 $(this).next().toggle();
+					 if($(this).is('.active')){
+						 $(this).removeClass('active');
+					 }else{
+						 $(this).addClass('active');
+					 }
+				})
+				$("ol").on("click","li a",function(){
+					$.each($(this).parent().siblings(),function(i,e){
+							$(e).find("a").removeClass('three_this')
+					});
+						$(this).addClass('three_this');                            // 添加当前元素的样式
+				})
+
+         });
+        
+    function logoutFun(){
+    	//询问框
+		layer.confirm('你确定要注销登录吗？', {
+		  btn: ['确定','取消'] //按钮
+		}, function(){
+		  layer.msg('该账户已注销', {icon: 1});
+		}, function(){
+		  
+		});
+    }
+        
+        
+
+//      
+        
+        
     </script>
 </body>
 

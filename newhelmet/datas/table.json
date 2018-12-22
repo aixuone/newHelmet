@@ -13,7 +13,7 @@
 	    "department":"部门",   
 	    "date":"2018.12.20",
 	    "character":"角色1",
-	    "status":"状态"
+	    "status":"正常"
 	    },
 	    {
 	    "id":"2",
@@ -26,7 +26,21 @@
 	    "department":"部门",   
 	    "date":"2018.12.20",
 	    "character":"角色1",
-	    "status":"状态"
+	    "status":"禁用"
+	    	
+	    },
+	    {
+	    "id":"3",
+	    "account":"账户3",
+	    "username":"姓名3",	
+	    "sex":"性别",
+	    "birthday":"生日",
+	    "number":"15048794389",
+	    "unit":"单位",	
+	    "department":"部门",   
+	    "date":"2018.12.20",
+	    "character":"角色3",
+	    "status":"停用"
 	    	
 	    }
 	
